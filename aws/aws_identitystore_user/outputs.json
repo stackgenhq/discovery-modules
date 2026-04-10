@@ -1,0 +1,16 @@
+{
+  "output": {
+    "external_ids": {
+      "value": "${aws_identitystore_user.this.external_ids}",
+      "description": "External identifiers used to associate the user with external systems"
+    },
+    "id": {
+      "value": "${aws_identitystore_user.this.id}",
+      "description": "Unique identifier for the Identity Store user resource"
+    },
+    "user_id": {
+      "value": "${aws_identitystore_user.this.user_id}",
+      "description": "Internal user ID for the Identity Store, useful for API operations"
+    }
+  }
+}

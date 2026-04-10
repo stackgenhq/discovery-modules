@@ -1,0 +1,53 @@
+{
+  "variable": {
+    "description": [
+      {
+        "description": "Defines the purpose or details of the permission set to help identify its role or usage within AWS SSO.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "instance_arn": [
+      {
+        "description": "Specifies the ARN of the AWS SSO instance associated with the permission set.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "name": [
+      {
+        "description": "Defines the name of the permission set, which must be unique within the AWS SSO instance.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "relay_state": [
+      {
+        "description": "Default URL or state that users are directed to after signing in, must be a valid URL format.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "session_duration": [
+      {
+        "description": "Defines the duration for a single sign-on session, specified in ISO 8601 format (e.g., PT1H for 1 hour). Must be between 1 hour and 12 hours.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "tags": [
+      {
+        "description": "Key-value pairs to categorize or organize resources, typically used for management, cost tracking, or identification purposes.",
+        "nullable": true,
+        "type": "map(string)"
+      }
+    ],
+    "timeouts": [
+      {
+        "description": "Defines custom timeout settings for operations such as create, update, and delete actions.",
+        "nullable": true,
+        "type": "object({update: optional(string)})"
+      }
+    ]
+  }
+}

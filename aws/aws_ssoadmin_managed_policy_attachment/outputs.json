@@ -1,0 +1,12 @@
+{
+  "output": {
+    "id": {
+      "value": "${aws_ssoadmin_managed_policy_attachment.this.id}",
+      "description": "Unique ID for tracking the policy attachment in AWS SSO configurations"
+    },
+    "managed_policy_name": {
+      "value": "${aws_ssoadmin_managed_policy_attachment.this.managed_policy_name}",
+      "description": "Name of the managed policy linked to the AWS SSO assignment"
+    }
+  }
+}

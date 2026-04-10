@@ -1,0 +1,14 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: Ssoadmin Customer Managed Policy Attachment
+  node:
+    label:
+      static: Ssoadmin Customer Managed Policy Attachment
+      template: ${permission_set_arn}
+    display_type: default
+
+discovery:
+  type: aws_ssoadmin_customer_managed_policy_attachment
+  dnd_supported: false

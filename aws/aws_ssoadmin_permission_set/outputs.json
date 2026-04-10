@@ -1,0 +1,20 @@
+{
+  "output": {
+    "arn": {
+      "value": "${aws_ssoadmin_permission_set.this.arn}",
+      "description": "Amazon Resource Name for managing the permission set via APIs or IAM policies"
+    },
+    "created_date": {
+      "value": "${aws_ssoadmin_permission_set.this.created_date}",
+      "description": "Timestamp indicating when the permission set was created"
+    },
+    "id": {
+      "value": "${aws_ssoadmin_permission_set.this.id}",
+      "description": "Unique identifier for the permission set used in configurations"
+    },
+    "tags_all": {
+      "value": "${aws_ssoadmin_permission_set.this.tags_all}",
+      "description": "Consolidated tags for tracking and organizing resources"
+    }
+  }
+}

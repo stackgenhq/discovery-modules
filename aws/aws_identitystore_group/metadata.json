@@ -1,0 +1,10 @@
+{
+  "resourceType": "aws_identitystore_group",
+  "templateType": "atomic",
+  "label": "Identitystore Group",
+  "icon": "",
+  "provider": "aws",
+  "iacType": "Terraform",
+  "allowDnD": false,
+  "nameVariable": "display_name"
+}

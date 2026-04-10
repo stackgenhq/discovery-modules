@@ -1,0 +1,8 @@
+{
+  "output": {
+    "id": {
+      "value": "${aws_ssoadmin_customer_managed_policy_attachment.this.id}",
+      "description": "Unique identifier for the policy attachment, useful for tracking and referencing."
+    }
+  }
+}

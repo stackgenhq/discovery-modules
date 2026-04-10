@@ -1,0 +1,10 @@
+{
+  "resourceType": "aws_ssoadmin_managed_policy_attachment",
+  "templateType": "atomic",
+  "label": "Ssoadmin Managed Policy Attachment",
+  "icon": "",
+  "provider": "aws",
+  "iacType": "Terraform",
+  "allowDnD": false,
+  "nameVariable": "managed_policy_arn"
+}

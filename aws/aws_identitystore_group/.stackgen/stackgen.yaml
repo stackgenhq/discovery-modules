@@ -1,0 +1,14 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: Identitystore Group
+  node:
+    label:
+      static: Identitystore Group
+      template: ${display_name}
+    display_type: default
+
+discovery:
+  type: aws_identitystore_group
+  dnd_supported: false

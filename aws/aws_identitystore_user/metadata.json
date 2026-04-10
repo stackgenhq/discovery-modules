@@ -1,0 +1,10 @@
+{
+  "resourceType": "aws_identitystore_user",
+  "templateType": "atomic",
+  "label": "Identitystore User",
+  "icon": "",
+  "provider": "aws",
+  "iacType": "Terraform",
+  "allowDnD": false,
+  "nameVariable": "user_name"
+}

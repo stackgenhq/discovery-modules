@@ -1,0 +1,102 @@
+{
+  "variable": {
+    "addresses": [
+      {
+        "description": "Defines the physical or postal addresses associated with the user, including type, format, and constraints as required by the identity store.",
+        "nullable": true,
+        "type": "list(object({country: optional(string),formatted: optional(string),locality: optional(string),postal_code: optional(string),primary: optional(bool),region: optional(string),street_address: optional(string),type: optional(string)}))"
+      }
+    ],
+    "display_name": [
+      {
+        "description": "The name displayed for the user, typically used for identification purposes; must be unique within the identity store.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "emails": [
+      {
+        "description": "List of email addresses associated with the user, including at least one primary email; required for user creation.",
+        "nullable": true,
+        "type": "list(object({primary: optional(bool),type: optional(string),value: optional(string)}))"
+      }
+    ],
+    "identity_store_id": [
+      {
+        "description": "The identifier of the AWS Identity Store associated with the user, required for managing user resources.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "locale": [
+      {
+        "description": "Specifies the user's locale, typically in the format of a language code followed by a country code (e.g., \"en_US\"). Must comply with ISO 639-1 and ISO 3166-1 standards.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "name": [
+      {
+        "description": "Specifies the user's display name, which is required and must be unique within the identity store.",
+        "nullable": false,
+        "type": "list(object({family_name: string,formatted: optional(string),given_name: string,honorific_prefix: optional(string),honorific_suffix: optional(string),middle_name: optional(string)}))"
+      }
+    ],
+    "nickname": [
+      {
+        "description": "Specifies the nickname for the user, typically used as a casual or informal name.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "phone_numbers": [
+      {
+        "description": "List of phone numbers associated with the user, each entry must include type and value attributes.",
+        "nullable": true,
+        "type": "list(object({primary: optional(bool),type: optional(string),value: optional(string)}))"
+      }
+    ],
+    "preferred_language": [
+      {
+        "description": "Specifies the user's preferred language for communication, typically formatted as a language tag (e.g., \"en-US\").",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "profile_url": [
+      {
+        "description": "URL of the user's profile, typically used for referencing external user details; must be a valid URL format.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "timezone": [
+      {
+        "description": "Specifies the user's timezone in IANA format (e.g., \"America/New_York\"); must be a valid timezone identifier.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "title": [
+      {
+        "description": "The user's title or designation within the organization.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "user_name": [
+      {
+        "description": "Specifies the unique name of the user within the identity store; must meet the naming conventions of the identity provider.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "user_type": [
+      {
+        "description": "Specifies the type of user, such as employee or contractor, within the identity store.",
+        "nullable": true,
+        "type": "string"
+      }
+    ]
+  }
+}

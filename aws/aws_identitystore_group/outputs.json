@@ -1,0 +1,16 @@
+{
+  "output": {
+    "external_ids": {
+      "value": "${aws_identitystore_group.this.external_ids}",
+      "description": "List of external IDs for identifying the group across systems"
+    },
+    "group_id": {
+      "value": "${aws_identitystore_group.this.group_id}",
+      "description": "Unique identifier for managing the group in the identity store"
+    },
+    "id": {
+      "value": "${aws_identitystore_group.this.id}",
+      "description": "Internal Terraform identifier for referencing the group resource"
+    }
+  }
+}
