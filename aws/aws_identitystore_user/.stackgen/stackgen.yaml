@@ -206,3 +206,7 @@ variable_groups:
   - label: "Role and Type"
     description: "Organizational role and user classification"
     variables: ["title", "user_type"]
+
+discovery:
+  type: aws_identitystore_user
+  dnd_supported: false

@@ -33,3 +33,7 @@ variable_groups:
   - label: "Group Configuration"
     description: "Identity store group identity and scope"
     variables: ["display_name", "identity_store_id", "description"]
+
+discovery:
+  type: aws_identitystore_group
+  dnd_supported: false

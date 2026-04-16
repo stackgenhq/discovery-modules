@@ -71,3 +71,7 @@ variable_groups:
   - label: "Tags and Timeouts"
     description: "Resource tags and operation timeouts"
     variables: ["tags", "timeouts"]
+
+discovery:
+  type: aws_ssoadmin_permission_set
+  dnd_supported: false

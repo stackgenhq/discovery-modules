@@ -68,3 +68,7 @@ variable_groups:
   - label: "Timeouts"
     description: "Optional create and delete timeouts"
     variables: ["timeouts"]
+
+discovery:
+  type: aws_ssoadmin_customer_managed_policy_attachment
+  dnd_supported: false
