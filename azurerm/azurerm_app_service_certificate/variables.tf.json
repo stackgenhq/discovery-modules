@@ -1,0 +1,60 @@
+{
+  "variable": {
+    "app_service_plan_id": [
+      {
+        "description": "ID of the App Service Plan to associate with the certificate; must be in the same region as the certificate.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "key_vault_id": [
+      {
+        "description": "Specifies the ID of the Key Vault containing the certificate. Must be in the same Azure region as the App Service Certificate.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "key_vault_secret_id": [
+      {
+        "description": "ID of the Key Vault Secret containing the private certificate. Must be in the format of a full resource ID.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "name": [
+      {
+        "description": "Specifies the name of the App Service Certificate. Must be unique within the resource group.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "password": [
+      {
+        "description": "Password used to access the PFX file for the App Service Certificate; must match the password set during the certificate export.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "pfx_blob": [
+      {
+        "description": "PFX certificate file data in base64 format, used for importing the SSL/TLS certificate. Must be a valid PFX file.",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "tags": [
+      {
+        "description": "Key-value pairs to organize and categorize resources, supporting resource management and billing; values must be strings.",
+        "nullable": true,
+        "type": "map(string)"
+      }
+    ],
+    "timeouts": [
+      {
+        "description": "Defines the timeouts for create, update, and delete operations of the App Service Certificate.",
+        "nullable": true,
+        "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"
+      }
+    ]
+  }
+}

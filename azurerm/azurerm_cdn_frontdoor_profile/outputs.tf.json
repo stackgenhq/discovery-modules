@@ -1,0 +1,12 @@
+{
+  "output": {
+    "id": {
+      "value": "${azurerm_cdn_frontdoor_profile.this.id}",
+      "description": "Unique ID for referencing the Front Door profile in Azure configurations"
+    },
+    "resource_guid": {
+      "value": "${azurerm_cdn_frontdoor_profile.this.resource_guid}",
+      "description": "Globally unique identifier for tracking the Front Door profile resource"
+    }
+  }
+}

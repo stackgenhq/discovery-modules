@@ -1,0 +1,57 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: CDN Front Door Profile
+  node:
+    label:
+      static: CDN Front Door Profile
+      template: ${name}
+    display_type: default
+
+variables:
+  sku_name:
+    description: Specifies the SKU for this CDN Front Door Profile. Possible values are Standard_AzureFrontDoor or Premium_AzureFrontDoor.
+    type: string
+    options:
+      - Standard_AzureFrontDoor
+      - Premium_AzureFrontDoor
+    ui_control: select
+  identity:
+    description: Specifies the identity type and configuration for the CDN Front Door profile.
+    attributes:
+      type:
+        label: Type
+        description: The type of managed identity to assign.
+        validation:
+          required: true
+          dataType: string
+        type: string
+        options:
+          - SystemAssigned
+          - UserAssigned
+          - SystemAssigned, UserAssigned
+        ui_control: select
+  log_scrubbing_rule:
+    description: Defines the log scrubbing rule configuration for the Azure Front Door Profile.
+    attributes:
+      match_variable:
+        label: Match Variable
+        description: The variable to be scrubbed from the logs.
+        validation:
+          required: true
+          dataType: string
+        type: string
+        options:
+          - QueryStringArgNames
+          - RequestIPAddress
+          - RequestUri
+        ui_control: select
+
+discovery:
+  type: azurerm_cdn_frontdoor_profile
+  dnd_supported: false
+  references:
+    identity_ids:
+      from: azurerm_user_assigned_identity
+      output: id
