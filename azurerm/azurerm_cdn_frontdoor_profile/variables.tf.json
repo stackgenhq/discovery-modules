@@ -1,0 +1,53 @@
+{
+  "variable": {
+    "identity": [
+      {
+        "description": "Specifies the identity type and configuration for the CDN Front Door profile, supporting system-assigned, user-assigned, or both.",
+        "nullable": true,
+        "type": "list(object({identity_ids: optional(list(string)),principal_id: optional(string),tenant_id: optional(string),type: string}))"
+      }
+    ],
+    "log_scrubbing_rule": [
+      {
+        "description": "Defines the log scrubbing rule configuration for the Azure Front Door Profile, specifying how sensitive data should be masked or scrubbed in logs.",
+        "nullable": true,
+        "type": "list(object({match_variable: string}))"
+      }
+    ],
+    "name": [
+      {
+        "description": "Specifies the name of the CDN Front Door profile, which must be unique within the resource group and adhere to Azure naming conventions.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "response_timeout_seconds": [
+      {
+        "description": "Specifies the time, in seconds, to wait for a response from the origin before timing out. Must be between 1 and 300 seconds.",
+        "nullable": true,
+        "type": "number"
+      }
+    ],
+    "sku_name": [
+      {
+        "description": "Specifies the pricing tier of the CDN Front Door profile. Valid values are 'Standard_AzureFrontDoor' or 'Premium_AzureFrontDoor'.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "tags": [
+      {
+        "description": "Key-value pairs for resource tagging to organize and categorize the profile; supports Azure Resource Manager tags.",
+        "nullable": true,
+        "type": "map(string)"
+      }
+    ],
+    "timeouts": [
+      {
+        "description": "Specifies the timeouts for creating, updating, and deleting the CDN Front Door profile.",
+        "nullable": true,
+        "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"
+      }
+    ]
+  }
+}

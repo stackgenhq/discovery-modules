@@ -1,0 +1,40 @@
+{
+  "output": {
+    "expiration_date": {
+      "value": "${azurerm_app_service_certificate.this.expiration_date}",
+      "description": "Date when the certificate will expire, useful for renewal tracking"
+    },
+    "friendly_name": {
+      "value": "${azurerm_app_service_certificate.this.friendly_name}",
+      "description": "Human-readable name for identifying the certificate easily"
+    },
+    "host_names": {
+      "value": "${azurerm_app_service_certificate.this.host_names}",
+      "description": "List of host names covered by the certificate, useful for domain validation"
+    },
+    "hosting_environment_profile_id": {
+      "value": "${azurerm_app_service_certificate.this.hosting_environment_profile_id}",
+      "description": "ID of the hosting environment profile associated with the certificate"
+    },
+    "id": {
+      "value": "${azurerm_app_service_certificate.this.id}",
+      "description": "Unique identifier for referencing the certificate in configurations"
+    },
+    "issue_date": {
+      "value": "${azurerm_app_service_certificate.this.issue_date}",
+      "description": "Date when the certificate was issued, helpful for compliance checks"
+    },
+    "issuer": {
+      "value": "${azurerm_app_service_certificate.this.issuer}",
+      "description": "Entity that issued the certificate, useful for validation purposes"
+    },
+    "subject_name": {
+      "value": "${azurerm_app_service_certificate.this.subject_name}",
+      "description": "Name of the subject associated with the certificate, useful for identification"
+    },
+    "thumbprint": {
+      "value": "${azurerm_app_service_certificate.this.thumbprint}",
+      "description": "SHA-1 hash of the certificate, useful for integrity verification"
+    }
+  }
+}

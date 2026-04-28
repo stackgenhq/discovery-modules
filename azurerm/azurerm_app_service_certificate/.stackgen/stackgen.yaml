@@ -1,0 +1,24 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: App Service Certificate
+  node:
+    label:
+      static: App Service Certificate
+      template: ${name}
+    display_type: default
+
+discovery:
+  type: azurerm_app_service_certificate
+  dnd_supported: false
+  references:
+    app_service_plan_id:
+      from: azurerm_app_service_plan
+      output: id
+    key_vault_id:
+      from: azurerm_key_vault
+      output: id
+    key_vault_secret_id:
+      from: azurerm_key_vault_secret
+      output: versionless_id
