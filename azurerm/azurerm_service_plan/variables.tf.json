@@ -2,6 +2,7 @@
   "variable": {
     "app_service_environment_id": [
       {
+        "default": null,
         "description": "The ID of the App Service Environment to use for the service plan. Optional.",
         "nullable": true,
         "type": "string"

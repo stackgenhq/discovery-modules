@@ -45,6 +45,7 @@
     ],
     "ip_range_filter": [
       {
+        "default": null,
         "description": "Set an IP range filter to restrict access to the Cosmos DB account.",
         "nullable": true,
         "type": "string"
@@ -59,6 +60,7 @@
     ],
     "key_vault_key_id": [
       {
+        "default": null,
         "description": "Specify the Key Vault key ID for encryption at rest.",
         "nullable": true,
         "type": "string"
@@ -80,6 +82,7 @@
     ],
     "max_interval_in_seconds": [
       {
+        "default": null,
         "description": "When used with the Bounded Staleness consistency level, this value represents the time amount of staleness.",
         "nullable": true,
         "type": "number"
@@ -101,6 +104,7 @@
     ],
     "network_acl_bypass_ids": [
       {
+        "default": null,
         "description": "List of IDs allowed to bypass network ACLs.",
         "nullable": true,
         "type": "list(string)"

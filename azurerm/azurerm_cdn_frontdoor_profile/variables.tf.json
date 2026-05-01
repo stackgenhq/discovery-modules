@@ -2,6 +2,7 @@
   "variable": {
     "identity": [
       {
+        "default": [],
         "description": "Specifies the identity type and configuration for the CDN Front Door profile, supporting system-assigned, user-assigned, or both.",
         "nullable": true,
         "type": "list(object({identity_ids: optional(list(string)),principal_id: optional(string),tenant_id: optional(string),type: string}))"
@@ -9,6 +10,7 @@
     ],
     "log_scrubbing_rule": [
       {
+        "default": [],
         "description": "Defines the log scrubbing rule configuration for the Azure Front Door Profile, specifying how sensitive data should be masked or scrubbed in logs.",
         "nullable": true,
         "type": "list(object({match_variable: string}))"
@@ -44,9 +46,16 @@
     ],
     "timeouts": [
       {
+        "default": null,
         "description": "Specifies the timeouts for creating, updating, and deleting the CDN Front Door profile.",
         "nullable": true,
         "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"
+      }
+    ],
+    "resource_group_name": [
+      {
+        "type": "string",
+        "description": "Name of the resource group that this resource will be created in."
       }
     ]
   }

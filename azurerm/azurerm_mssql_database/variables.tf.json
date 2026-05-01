@@ -23,6 +23,7 @@
     ],
     "creation_source_database_id": [
       {
+        "default": null,
         "description": "Specifies the ID of the source database for database creation, required for creating a database from an existing database or a restore point.",
         "nullable": true,
         "type": "string"
@@ -37,6 +38,7 @@
     ],
     "enclave_type": [
       {
+        "default": null,
         "description": "Specifies the type of enclave to enable for the SQL database. Must be either \"None\" or \"Virtualized\".",
         "nullable": true,
         "type": "string"
@@ -51,6 +53,7 @@
     ],
     "identity": [
       {
+        "default": [],
         "description": "Specifies the managed identity to associate with the SQL database for authentication purposes.",
         "nullable": true,
         "type": "list(object({identity_ids: list(string),type: string}))"
@@ -58,6 +61,7 @@
     ],
     "import": [
       {
+        "default": [],
         "description": "Specifies whether the database should be created by importing a BACPAC file. Requires the source URI and storage account credentials.",
         "nullable": true,
         "type": "list(object({administrator_login: string,administrator_login_password: string,authentication_type: string,storage_account_id: optional(string),storage_key: string,storage_key_type: string,storage_uri: string}))"
@@ -72,6 +76,7 @@
     ],
     "license_type": [
       {
+        "default": null,
         "description": "Specifies the licensing model for the SQL database, either 'LicenseIncluded' or 'BasePrice'.",
         "nullable": true,
         "type": "string"
@@ -128,6 +133,7 @@
     ],
     "recover_database_id": [
       {
+        "default": null,
         "description": "ID of the source database to recover from, required when creating a database using the recovery feature.",
         "nullable": true,
         "type": "string"
@@ -135,6 +141,7 @@
     ],
     "recovery_point_id": [
       {
+        "default": null,
         "description": "Specifies the unique identifier of the recovery point to restore the database from.",
         "nullable": true,
         "type": "string"
@@ -142,6 +149,7 @@
     ],
     "restore_dropped_database_id": [
       {
+        "default": null,
         "description": "Specifies the ID of the dropped database to restore. Must be used with the restore point in time parameter.",
         "nullable": true,
         "type": "string"
@@ -149,6 +157,7 @@
     ],
     "restore_long_term_retention_backup_id": [
       {
+        "default": null,
         "description": "Specifies the ID of the long-term retention backup to restore from. Must be a valid backup ID in the same region and subscription.",
         "nullable": true,
         "type": "string"
@@ -156,6 +165,7 @@
     ],
     "restore_point_in_time": [
       {
+        "default": null,
         "description": "Specifies the point in time (ISO8601 format) to restore the database to, applicable only for point-in-time restore operations.",
         "nullable": true,
         "type": "string"
@@ -163,6 +173,7 @@
     ],
     "sample_name": [
       {
+        "default": null,
         "description": "Specifies the name of the SQL database; must be unique within the SQL server and adhere to Azure naming conventions.",
         "nullable": true,
         "type": "string"
@@ -170,6 +181,7 @@
     ],
     "secondary_type": [
       {
+        "default": null,
         "description": "Specifies the replication type for the secondary database; valid options are \"Geo\", \"Named\", or \"None\".",
         "nullable": true,
         "type": "string"
@@ -219,6 +231,7 @@
     ],
     "timeouts": [
       {
+        "default": null,
         "description": "Defines the time durations for create, update, and delete operations, allowing customization of operation timeouts.",
         "nullable": true,
         "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"
@@ -240,6 +253,7 @@
     ],
     "transparent_data_encryption_key_vault_key_id": [
       {
+        "default": null,
         "description": "Specifies the Azure Key Vault key ID to use for transparent data encryption, requiring the key to be in the same region as the database.",
         "nullable": true,
         "type": "string"
