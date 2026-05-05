@@ -11,14 +11,16 @@
             {
                 "type": "string",
                 "description": "Description of the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "default_version": [
             {
                 "type": "number",
                 "description": "Default version of the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "update_default_version": [
@@ -33,14 +35,16 @@
             {
                 "type": "string",
                 "description": "ID of the AMI to use for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_initiated_shutdown_behavior": [
             {
                 "type": "string",
                 "description": "Shutdown behavior for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "disable_api_termination": [
@@ -55,190 +59,217 @@
             {
                 "type": "string",
                 "description": "Whether the instance is EBS optimized",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_type": [
             {
                 "type": "string",
                 "description": "Instance type",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "kernel_id": [
             {
                 "type": "string",
                 "description": "ID of the kernel",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "key_name": [
             {
                 "type": "string",
                 "description": "Name of the key pair",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ram_disk_id": [
             {
                 "type": "string",
                 "description": "ID of the RAM disk",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "security_group_names": [
             {
                 "type": "list(string)",
                 "description": "List of security group names",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tags": [
             {
                 "type": "map(string)",
                 "description": "Tags to apply to the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "user_data": [
             {
                 "type": "string",
                 "description": "Base64-encoded user data for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "vpc_security_group_ids": [
             {
                 "type": "list(string)",
                 "description": "List of security group IDs for VPC",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "capacity_reservation_specification": [
             {
                 "type": "list(object({capacity_reservation_preference: string, capacity_reservation_target: list(object({capacity_reservation_id: string, capacity_reservation_resource_group_arn: string}))}))",
                 "description": "Targeting for EC2 capacity reservations",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "cpu_options": [
             {
                 "type": "list(object({core_count: number, threads_per_core: number}))",
                 "description": "The CPU options for the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "credit_specification": [
             {
                 "type": "list(object({cpu_credits: string}))",
                 "description": "CPU specifications for the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "elastic_gpu_specifications": [
             {
                 "type": "list(object({type: string}))",
                 "description": "The Elastic GPU to attach to the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "elastic_inference_accelerator": [
             {
                 "type": "list(object({type: string}))",
                 "description": "The Elastic Inference Accelerator to attach to the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "enclave_options": [
             {
                 "type": "list(object({enabled: bool}))",
                 "description": "Whether to enable Nitro Enclaves",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "hibernation_options": [
             {
                 "type": "list(object({configured: bool}))",
                 "description": "Whether the hibernation is configured",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "iam_instance_profile": [
             {
                 "type": "list(object({arn: string, name: string}))",
                 "description": "ARN of the instance profile",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_market_options": [
             {
                 "type": "list(object({market_type: string, spot_options: list(object({block_duration_minutes: number, instance_interruption_behavior: string, max_price: string, spot_instance_type: string, valid_until: string}))}))",
                 "description": "Market options for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "license_specification": [
             {
                 "type": "list(object({license_configuration_arn: string}))",
                 "description": "The license configuration to associate with the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "maintenance_options": [
             {
                 "type": "list(object({auto_recovery: string}))",
                 "description": "Maintenance options for the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "metadata_options": [
             {
                 "type": "list(object({http_endpoint: string, http_protocol_ipv6: string, http_put_response_hop_limit: number, http_tokens: string, instance_metadata_tags: string}))",
                 "description": "Metadata options for the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "monitoring": [
             {
                 "type": "list(object({enabled: bool}))",
                 "description": "Whether monitoring is enabled",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "network_interfaces": [
             {
                 "type": "list(object({associate_carrier_ip_address: string, associate_public_ip_address: string, delete_on_termination: string, description: string, device_index: number, interface_type: string, ipv4_address_count: number, ipv4_addresses: list(string), ipv4_prefix_count: number, ipv4_prefixes: list(string), ipv6_address_count: number, ipv6_addresses: list(string), ipv6_prefix_count: number, ipv6_prefixes: list(string), network_card_index: number, network_interface_id: string, private_ip_address: string, security_groups: list(string), subnet_id: string}))",
                 "description": "Network interface configuration for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "placement": [
             {
                 "type": "list(object({affinity: string, availability_zone: string, group_name: string, host_id: string, host_resource_group_arn: string, partition_number: number, spread_domain: string, tenancy: string}))",
                 "description": "Placement configuration for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "private_dns_name_options": [
             {
                 "type": "list(object({enable_resource_name_dns_aaaa_record: bool, enable_resource_name_dns_a_record: bool, hostname_type: string}))",
                 "description": "Private DNS name options for the instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tag_specifications": [
             {
                 "type": "list(object({resource_type: string, tags: map(string)}))",
                 "description": "Tags to apply to resources during launch",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "block_device_mappings": [
             {
                 "type": "list(object({device_name: string, no_device: string, virtual_name: string, ebs: list(object({delete_on_termination: string, encrypted: string, iops: number, kms_key_id: string, snapshot_id: string, throughput: number, volume_size: number, volume_type: string}))}))",
                 "description": "Block device mapping configuration for the launch template",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }
-} 
+}
