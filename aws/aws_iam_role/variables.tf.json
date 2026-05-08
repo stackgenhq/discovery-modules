@@ -11,7 +11,8 @@
             {
                 "description": "The description of the role",
                 "nullable": true,
-                "type": "string"
+                "type": "string",
+                "default": null
             }
         ],
         "force_detach_policies": [
@@ -26,35 +27,40 @@
             {
                 "description": "The policy document",
                 "nullable": true,
-                "type": "list(object({ name: string, policy: string }))"
+                "type": "list(object({ name: string, policy: string }))",
+                "default": null
             }
         ],
         "name": [
             {
                 "description": "The name of the role",
                 "type": "string",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tags": [
             {
                 "description": "A mapping of tags to assign to the role",
                 "nullable": true,
-                "type": "map(string)"
+                "type": "map(string)",
+                "default": null
             }
         ],
         "path": [
             {
                 "description": "The path to the role",
                 "type": "string",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "max_session_duration": [
             {
                 "description": "The maximum session duration (in seconds) that you want to set for the specified role",
                 "type": "number",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "permissions_boundary": [

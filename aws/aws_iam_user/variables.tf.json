@@ -19,7 +19,8 @@
             {
                 "type": "string",
                 "description": "he ARN of the policy that is used to set the permissions boundary for the user.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "force_destroy": [
@@ -34,7 +35,8 @@
             {
                 "type": "map(string)",
                 "description": "Key-value map of tags for the IAM user. If configured with a provider default_tags configuration block present, tags with matching keys will overwrite those defined at the provider-level.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }

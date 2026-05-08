@@ -1,87 +1,92 @@
 {
-  "variable": {
-    "amazon_side_asn": [
-      {
-        "description": "The Autonomous System Number (ASN) for the Amazon side of a BGP session.",
-        "nullable": true,
-        "type": "number"
-      }
-    ],
-    "auto_accept_shared_attachments": [
-      {
-        "description": "Whether to automatically accept cross-account attachments for the transit gateway.",
-        "nullable": true,
-        "type": "string",
-        "default": "disable"
-      }
-    ],
-    "default_route_table_association": [
-      {
-        "description": "Whether resource attachments are automatically associated with the default association route table.",
-        "nullable": true,
-        "type": "string",
-        "default": "enable"
-      }
-    ],
-    "default_route_table_propagation": [
-      {
-        "description": "Whether resource attachments automatically propagate routes to the default propagation route table.",
-        "nullable": true,
-        "type": "string",
-        "default": "enable"
-      }
-    ],
-    "description": [
-      {
-        "description": "A description for the transit gateway.",
-        "nullable": true,
-        "type": "string"
-      }
-    ],
-    "dns_support": [
-      {
-        "description": "Enable or disable DNS support for the transit gateway.",
-        "nullable": true,
-        "type": "string",
-        "default": "enable"
-      }
-    ],
-    "multicast_support": [
-      {
-        "description": "Enable or disable multicast support on the transit gateway.",
-        "nullable": true,
-        "type": "string",
-        "default": "disable"
-      }
-    ],
-    "tags": [
-      {
-        "description": "A map of tags to assign to the transit gateway.",
-        "nullable": true,
-        "type": "map(string)"
-      }
-    ],
-    "transit_gateway_cidr_blocks": [
-      {
-        "description": "The list of CIDR blocks for the transit gateway.",
-        "nullable": true,
-        "type": "list(string)"
-      }
-    ],
-    "vpn_ecmp_support": [
-      {
-        "description": "Enable or disable Equal-Cost Multi-Path (ECMP) routing support for VPN connections.",
-        "nullable": true,
-        "type": "string",
-        "default": "enable"
-      }
-    ],
-    "timeouts": [
-      {
-        "description": "A map of timeouts for the transit gateway.",
-        "nullable": true,
-        "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })"
-      }
-    ]
-  }
+    "variable": {
+        "amazon_side_asn": [
+            {
+                "description": "The Autonomous System Number (ASN) for the Amazon side of a BGP session.",
+                "nullable": true,
+                "type": "number",
+                "default": null
+            }
+        ],
+        "auto_accept_shared_attachments": [
+            {
+                "description": "Whether to automatically accept cross-account attachments for the transit gateway.",
+                "nullable": true,
+                "type": "string",
+                "default": "disable"
+            }
+        ],
+        "default_route_table_association": [
+            {
+                "description": "Whether resource attachments are automatically associated with the default association route table.",
+                "nullable": true,
+                "type": "string",
+                "default": "enable"
+            }
+        ],
+        "default_route_table_propagation": [
+            {
+                "description": "Whether resource attachments automatically propagate routes to the default propagation route table.",
+                "nullable": true,
+                "type": "string",
+                "default": "enable"
+            }
+        ],
+        "description": [
+            {
+                "description": "A description for the transit gateway.",
+                "nullable": true,
+                "type": "string",
+                "default": null
+            }
+        ],
+        "dns_support": [
+            {
+                "description": "Enable or disable DNS support for the transit gateway.",
+                "nullable": true,
+                "type": "string",
+                "default": "enable"
+            }
+        ],
+        "multicast_support": [
+            {
+                "description": "Enable or disable multicast support on the transit gateway.",
+                "nullable": true,
+                "type": "string",
+                "default": "disable"
+            }
+        ],
+        "tags": [
+            {
+                "description": "A map of tags to assign to the transit gateway.",
+                "nullable": true,
+                "type": "map(string)",
+                "default": null
+            }
+        ],
+        "transit_gateway_cidr_blocks": [
+            {
+                "description": "The list of CIDR blocks for the transit gateway.",
+                "nullable": true,
+                "type": "list(string)",
+                "default": null
+            }
+        ],
+        "vpn_ecmp_support": [
+            {
+                "description": "Enable or disable Equal-Cost Multi-Path (ECMP) routing support for VPN connections.",
+                "nullable": true,
+                "type": "string",
+                "default": "enable"
+            }
+        ],
+        "timeouts": [
+            {
+                "description": "A map of timeouts for the transit gateway.",
+                "nullable": true,
+                "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })",
+                "default": null
+            }
+        ]
+    }
 }

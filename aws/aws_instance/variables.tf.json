@@ -4,7 +4,8 @@
             {
                 "type": "string",
                 "description": "AMI to use for the instance. Required unless `Launch Template` is specified and the `Launch Template` specifes an AMI. If an AMI is specified in the `Launch Template`, setting `ami` will override the AMI specified in the `Launch Template`.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "associate_public_ip_address": [
@@ -19,161 +20,184 @@
             {
                 "type": "string",
                 "description": "AZ to start the instance in.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "capacity_reservation_specification": [
             {
                 "type": "list(object({capacity_reservation_preference: string, capacity_reservation_target: list(object({capacity_reservation_id: string, capacity_reservation_resource_group_arn: string}))}))",
                 "description": "Describes an instance's Capacity Reservation targeting option.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "cpu_options": [
             {
                 "type": "list(object({amd_sev_snp: string, core_count: number, threads_per_core: number}))",
                 "description": "The CPU options for the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "credit_specification": [
             {
                 "type": "list(object({cpu_credits: string}))",
                 "description": "Configuration block for customizing the credit specification of the instance.Terraform will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "disable_api_stop": [
             {
                 "type": "bool",
                 "description": "If true, enables EC2 Instance Stop Protection.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "disable_api_termination": [
             {
                 "type": "bool",
                 "description": "If true, enables EC2 Instance Termination Protection.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ebs_block_device": [
             {
                 "type": "list(object({delete_on_termination: bool, device_name: string, encrypted: bool, iops: number, kms_key_id: string, snapshot_id: string, tags: map(string), throughput: number, volume_size: number, volume_type: string}))",
                 "description": "One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ebs_optimized": [
             {
                 "type": "bool",
                 "description": "If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "enclave_options": [
             {
                 "type": "list(object({enabled: bool}))",
                 "description": "Enable Nitro Enclaves on launched instances.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ephemeral_block_device": [
             {
                 "type": "list(object({device_name: string, no_device: string, virtual_name: string}))",
                 "description": "One or more configuration blocks to customize Ephemeral (also known as \"Instance Store\") volumes on the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "get_password_data": [
             {
                 "type": "bool",
                 "description": "If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "hibernation": [
             {
                 "type": "bool",
                 "description": "f true, the launched EC2 instance will support hibernation.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "host_id": [
             {
                 "type": "string",
                 "description": "ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "host_resource_group_arn": [
             {
                 "type": "string",
                 "description": "ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the tenancy parameter or set it to host.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "iam_instance_profile": [
             {
                 "type": "string",
                 "description": "IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the EC2 documentation, notably `iam:PassRole`.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_initiated_shutdown_behavior": [
             {
                 "type": "string",
                 "description": "Shutdown behavior for the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_market_options": [
             {
                 "type": "list(object({market_type: optional(string), spot_options: list(object({block_duration_minutes: optional(number), instance_interruption_behavior: string, max_price: string, spot_instance_type: string, valid_until: optional(string)}))}))",
                 "description": "Describes the market (purchasing) option for the instances.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_type": [
             {
                 "type": "string",
                 "description": "Instance type to use for the instance. Required unless `Launch Template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `Instance Type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ipv6_address_count": [
             {
                 "type": "number",
                 "description": "Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ipv6_addresses": [
             {
                 "type": "list(string)",
                 "description": "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "key_name": [
             {
                 "type": "string",
                 "description": "Key name of the Key Pair to use for the instance; which can be managed using the `Key Pair` resource.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "launch_template": [
             {
                 "type": "list(object({id: string, name: string, version: string}))",
                 "description": "Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "maintenance_options": [
             {
                 "type": "list(object({auto_recovery: string}))",
                 "description": "Maintenance and recovery options for the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "metadata_options": [
@@ -196,56 +220,64 @@
             {
                 "type": "list(object({device_index: number, network_card_index: number, network_interface_id: string}))",
                 "description": "Customize network interfaces to be attached at instance boot time.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "placement_group": [
             {
                 "type": "string",
                 "description": "Placement Group to start the instance in.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "placement_partition_number": [
             {
                 "type": "number",
                 "description": "Number of the partition the instance is in. Valid only if the `AWS Placement Group` resource's `Strategy` argument is set to \"partition\"",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "private_dns_name_options": [
             {
                 "type": "list(object({enable_resource_name_dns_aaaa_record: bool, enable_resource_name_dns_a_record: bool, hostname_type: string}))",
                 "description": "Options for the instance hostname. The default values are inherited from the subnet.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "private_ip": [
             {
                 "type": "string",
                 "description": "Private IP address to associate with the instance in a VPC.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "root_block_device": [
             {
                 "type": "list(object({delete_on_termination: bool, encrypted: bool, iops: string, kms_key_id: string, tags: map(string), throughput: string, volume_size: number, volume_type: string}))",
                 "description": "Configuration block to customize details about the root block device of the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "secondary_private_ips": [
             {
                 "type": "list(string)",
                 "description": "List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `Network Interface` block. Refer to the Elastic network interfaces documentation to see the maximum number of private IP addresses allowed per instance type.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "security_groups": [
             {
                 "type": "list(string)",
                 "description": "List of security group names to associate with.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "source_dest_check": [
@@ -260,7 +292,8 @@
             {
                 "type": "string",
                 "description": "VPC Subnet ID to launch in.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tags": [
@@ -275,28 +308,32 @@
             {
                 "type": "string",
                 "description": "Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "timeouts": [
             {
                 "description": "A map of timeouts for the transit gateway.",
                 "nullable": true,
-                "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })"
+                "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })",
+                "default": null
             }
         ],
         "user_data": [
             {
                 "type": "string",
                 "description": "User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `User Data Base64` instead.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "user_data_base64": [
             {
                 "type": "string",
                 "description": "Can be used instead of `User Data` to pass base64-encoded binary data directly. Use this instead of `User Data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "user_data_replace_on_change": [
@@ -311,21 +348,24 @@
             {
                 "type": "map(string)",
                 "description": "Map of tags to assign, at instance-creation time, to root and EBS volumes.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "vpc_security_group_ids": [
             {
                 "type": "list(string)",
                 "description": "List of security group IDs to associate with.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "enable_primary_ipv6": [
             {
                 "type": "bool",
                 "description": "Whether to enable primary IPv6 on the instance.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }
