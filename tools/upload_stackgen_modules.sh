@@ -109,6 +109,9 @@ for module in "${MODULES[@]}"; do
   fi
   if [[ -n "$PROJECT_ID" ]]; then
     cmd+=(--project "$PROJECT_ID")
+    cmd+=(--scope project)
+  else
+    cmd+=(--scope tenant)
   fi
   set +e
   output="$("${cmd[@]}" 2>&1)"
