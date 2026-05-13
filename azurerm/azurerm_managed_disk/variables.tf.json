@@ -219,7 +219,7 @@
     ],
     "public_network_access_enabled": [
       {
-        "type": "string",
+        "type": "bool",
         "description": "Whether it is allowed to access the disk via public network.",
         "nullable": false
       }
