@@ -152,7 +152,14 @@ upload_one_module() {
   [[ -n "$_UPL_REPO_URL" ]]    && cmd+=(--repo-url "$_UPL_REPO_URL")
   [[ -n "$_UPL_BRANCH" ]]      && cmd+=(--branch "$_UPL_BRANCH")
   [[ -n "$_UPL_TAG" ]]         && cmd+=(--tag "$_UPL_TAG")
-  [[ -n "$_UPL_PROJECT_ID" ]]  && cmd+=(--project "$_UPL_PROJECT_ID")
+  
+  if [[ -n "$_UPL_PROJECT_ID" ]]; then
+    cmd+=(--project "$_UPL_PROJECT_ID")
+    cmd+=(--scope project)
+  else
+    cmd+=(--scope tenant)
+  fi
+
   [[ -n "$_UPL_VERSION" ]]     && cmd+=(--version "$_UPL_VERSION")
   [[ "$_UPL_OVERWRITE_VERSION" == true ]] && cmd+=(--overwrite-version)
 

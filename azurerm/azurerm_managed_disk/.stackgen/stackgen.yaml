@@ -123,7 +123,7 @@ variables:
       - false
     ui_control: select
     description: Whether it is allowed to access the disk via public network.
-    type: string
+    type: bool
 
 discovery:
   type: azurerm_managed_disk
