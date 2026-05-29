@@ -1,0 +1,24 @@
+{
+    "output": {
+        "arn": {
+            "description": "The Amazon Resource Name (ARN) of the ECS service",
+            "value": "${aws_ecs_service.this.id}"
+        },
+        "name": {
+            "description": "The name of the ECS service",
+            "value": "${aws_ecs_service.this.name}"
+        },
+        "cluster": {
+            "description": "The ARN of the ECS cluster the service runs on",
+            "value": "${aws_ecs_service.this.cluster}"
+        },
+        "desired_count": {
+            "description": "The number of instances of the task definition running",
+            "value": "${aws_ecs_service.this.desired_count}"
+        },
+        "tags_all": {
+            "description": "All tags applied to the ECS service",
+            "value": "${aws_ecs_service.this.tags_all}"
+        }
+    }
+}

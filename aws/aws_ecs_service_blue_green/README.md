@@ -1,0 +1,3 @@
+# aws_ecs_service_blue_green
+
+This discovery module provisions an AWS ECS Service configured for blue/green deployments using AWS CodeDeploy as the deployment controller. It is designed for internet-facing microservices that require zero-downtime deployments, enforcing security best practices including mandatory network configuration (subnets and security groups), Fargate-first launch type, and lifecycle management that ignores task definition and load balancer changes post-deployment (as CodeDeploy manages these). This module was created to address issue [#9](https://github.com/stackgenhq/discovery-modules/issues/9): enabling blue/green deployments of internet-facing microservices on AWS ECS with security requirements enforced.

@@ -1,0 +1,150 @@
+{
+    "variable": {
+        "name": [
+            {
+                "description": "The name of the ECS service for blue/green deployment",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "cluster": [
+            {
+                "description": "The ARN of the ECS cluster to run the service on",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "task_definition": [
+            {
+                "description": "The ARN of the task definition to run; managed by CodeDeploy after initial deployment",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "desired_count": [
+            {
+                "description": "The number of instances of the task to run on the service",
+                "type": "number",
+                "nullable": true
+            }
+        ],
+        "launch_type": [
+            {
+                "description": "The launch type on which to run your service (FARGATE or EC2)",
+                "type": "string",
+                "nullable": true,
+                "default": "FARGATE"
+            }
+        ],
+        "platform_version": [
+            {
+                "description": "The Fargate platform version to run the service on",
+                "type": "string",
+                "nullable": true,
+                "default": "LATEST"
+            }
+        ],
+        "scheduling_strategy": [
+            {
+                "description": "The scheduling strategy to use for the service",
+                "type": "string",
+                "nullable": true,
+                "default": "REPLICA"
+            }
+        ],
+        "deployment_maximum_percent": [
+            {
+                "description": "The upper limit of the number of running tasks that can be active during a deployment",
+                "type": "number",
+                "nullable": true,
+                "default": 200
+            }
+        ],
+        "deployment_minimum_healthy_percent": [
+            {
+                "description": "The lower limit of the number of running tasks that must remain healthy during a deployment",
+                "type": "number",
+                "nullable": true,
+                "default": 100
+            }
+        ],
+        "enable_ecs_managed_tags": [
+            {
+                "description": "Whether to enable Amazon ECS managed tags for the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "enable_execute_command": [
+            {
+                "description": "Whether to enable execute command for the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "health_check_grace_period_seconds": [
+            {
+                "description": "The period of time in seconds to ignore unhealthy load balancer health checks after a task has started",
+                "type": "number",
+                "nullable": true,
+                "default": 60
+            }
+        ],
+        "propagate_tags": [
+            {
+                "description": "Specifies whether to propagate the tags to the tasks (SERVICE or TASK_DEFINITION)",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "wait_for_steady_state": [
+            {
+                "description": "Whether to wait for the service to reach a steady state before proceeding",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "tags": [
+            {
+                "description": "A map of tags to add to all resources",
+                "type": "map(string)",
+                "nullable": true
+            }
+        ],
+        "load_balancer": [
+            {
+                "description": "A list of load balancer configuration blocks for the blue/green deployment target groups",
+                "type": "list(object({ target_group_arn: string, container_name: string, container_port: number }))",
+                "nullable": true
+            }
+        ],
+        "network_configuration": [
+            {
+                "description": "Network configuration for the service; required for awsvpc network mode (Fargate)",
+                "type": "list(object({ subnets: list(string), security_groups: list(string), assign_public_ip: bool }))",
+                "nullable": true
+            }
+        ],
+        "capacity_provider_strategy": [
+            {
+                "description": "A list of capacity provider strategy blocks",
+                "type": "list(object({ capacity_provider: string, base: number, weight: number }))",
+                "nullable": true
+            }
+        ],
+        "service_registries": [
+            {
+                "description": "A list of service registry blocks for AWS Cloud Map integration",
+                "type": "list(object({ registry_arn: string, container_name: string, container_port: number, port: number }))",
+                "nullable": true
+            }
+        ],
+        "timeouts": [
+            {
+                "description": "A map of timeouts for create, update, and delete operations",
+                "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })",
+                "nullable": true
+            }
+        ]
+    }
+}

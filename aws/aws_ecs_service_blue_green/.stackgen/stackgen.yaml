@@ -1,0 +1,37 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: AWS ECS Service (Blue/Green)
+  node:
+    label:
+      static: AWS ECS Service (Blue/Green)
+      template: ${name}
+    display_type: default
+
+variables:
+  launch_type:
+    type: string
+    options:
+      - FARGATE
+      - EC2
+    ui_control: select
+    description: The launch type on which to run your service
+  scheduling_strategy:
+    description: The scheduling strategy to use for the service
+    type: string
+    options:
+      - REPLICA
+      - DAEMON
+    ui_control: select
+
+discovery:
+  type: aws_ecs_service_blue_green
+  dnd_supported: false
+  references:
+    cluster:
+      from: aws_ecs_cluster
+      output: arn
+    task_definition:
+      from: aws_ecs_task_definition
+      output: arn
