@@ -1,0 +1,317 @@
+{
+    "variable": {
+        "name": [
+            {
+                "description": "Base name for all resources",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "aws_region": [
+            {
+                "description": "AWS region where resources are deployed",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "vpc_id": [
+            {
+                "description": "ID of the VPC to deploy into",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "public_subnet_ids": [
+            {
+                "description": "List of public subnet IDs for the internet-facing ALB",
+                "type": "list(string)",
+                "nullable": false
+            }
+        ],
+        "private_subnet_ids": [
+            {
+                "description": "List of private subnet IDs for ECS tasks (no public IP)",
+                "type": "list(string)",
+                "nullable": false
+            }
+        ],
+        "ecs_cluster_arn": [
+            {
+                "description": "ARN of the ECS cluster",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "ecs_cluster_name": [
+            {
+                "description": "Name of the ECS cluster (required by CodeDeploy)",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "certificate_arn": [
+            {
+                "description": "ACM certificate ARN for HTTPS listeners",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_name": [
+            {
+                "description": "Name of the primary container in the task definition",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_image": [
+            {
+                "description": "Docker image URI for the container (e.g. 123456789.dkr.ecr.us-east-1.amazonaws.com/app:latest)",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_port": [
+            {
+                "description": "Port the container listens on",
+                "type": "number",
+                "default": 8080,
+                "nullable": true
+            }
+        ],
+        "desired_count": [
+            {
+                "description": "Desired number of ECS tasks",
+                "type": "number",
+                "default": 2,
+                "nullable": true
+            }
+        ],
+        "task_cpu": [
+            {
+                "description": "CPU units for the Fargate task (256, 512, 1024, 2048, 4096)",
+                "type": "string",
+                "default": "256",
+                "nullable": true
+            }
+        ],
+        "task_memory": [
+            {
+                "description": "Memory (MiB) for the Fargate task",
+                "type": "string",
+                "default": "512",
+                "nullable": true
+            }
+        ],
+        "platform_version": [
+            {
+                "description": "Fargate platform version",
+                "type": "string",
+                "default": "LATEST",
+                "nullable": true
+            }
+        ],
+        "ssl_policy": [
+            {
+                "description": "SSL/TLS policy for HTTPS listeners. Use a policy that disables TLS 1.0/1.1 for security.",
+                "type": "string",
+                "default": "ELBSecurityPolicy-TLS13-1-2-2021-06",
+                "nullable": true
+            }
+        ],
+        "enable_deletion_protection": [
+            {
+                "description": "Enable deletion protection on the ALB",
+                "type": "bool",
+                "default": true,
+                "nullable": true
+            }
+        ],
+        "waf_web_acl_arn": [
+            {
+                "description": "ARN of a WAFv2 Web ACL to associate with the ALB. Recommended for internet-facing applications.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "health_check_path": [
+            {
+                "description": "Health check path for target groups",
+                "type": "string",
+                "default": "/health",
+                "nullable": true
+            }
+        ],
+        "health_check_interval": [
+            {
+                "description": "Health check interval in seconds",
+                "type": "number",
+                "default": 30,
+                "nullable": true
+            }
+        ],
+        "health_check_timeout": [
+            {
+                "description": "Health check timeout in seconds",
+                "type": "number",
+                "default": 5,
+                "nullable": true
+            }
+        ],
+        "health_check_healthy_threshold": [
+            {
+                "description": "Number of consecutive healthy checks to consider the target healthy",
+                "type": "number",
+                "default": 3,
+                "nullable": true
+            }
+        ],
+        "health_check_unhealthy_threshold": [
+            {
+                "description": "Number of consecutive unhealthy checks to consider the target unhealthy",
+                "type": "number",
+                "default": 3,
+                "nullable": true
+            }
+        ],
+        "health_check_matcher": [
+            {
+                "description": "HTTP response codes to use for health check success",
+                "type": "string",
+                "default": "200",
+                "nullable": true
+            }
+        ],
+        "health_check_grace_period_seconds": [
+            {
+                "description": "Seconds to ignore failing load balancer health checks on initial startup",
+                "type": "number",
+                "default": 60,
+                "nullable": true
+            }
+        ],
+        "log_retention_days": [
+            {
+                "description": "CloudWatch log group retention in days",
+                "type": "number",
+                "default": 30,
+                "nullable": true
+            }
+        ],
+        "container_environment": [
+            {
+                "description": "List of environment variable maps ({name, value}) for the container",
+                "type": "list(object({name: string, value: string}))",
+                "default": [],
+                "nullable": true
+            }
+        ],
+        "container_secrets": [
+            {
+                "description": "List of secrets maps ({name, valueFrom}) for the container (SSM/Secrets Manager)",
+                "type": "list(object({name: string, valueFrom: string}))",
+                "default": [],
+                "nullable": true
+            }
+        ],
+        "task_role_policy_json": [
+            {
+                "description": "Optional inline IAM policy JSON to attach to the ECS task role",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "deployment_config_name": [
+            {
+                "description": "CodeDeploy deployment configuration name",
+                "type": "string",
+                "default": "CodeDeployDefault.ECSAllAtOnce",
+                "nullable": true
+            }
+        ],
+        "auto_rollback_enabled": [
+            {
+                "description": "Enable automatic rollback on deployment failure",
+                "type": "bool",
+                "default": true,
+                "nullable": true
+            }
+        ],
+        "auto_rollback_events": [
+            {
+                "description": "Events that trigger automatic rollback",
+                "type": "list(string)",
+                "default": [
+                    "DEPLOYMENT_FAILURE",
+                    "DEPLOYMENT_STOP_ON_ALARM"
+                ],
+                "nullable": true
+            }
+        ],
+        "deployment_ready_action": [
+            {
+                "description": "Action to take when deployment is ready (CONTINUE_DEPLOYMENT or STOP_DEPLOYMENT)",
+                "type": "string",
+                "default": "CONTINUE_DEPLOYMENT",
+                "nullable": true
+            }
+        ],
+        "deployment_ready_wait_minutes": [
+            {
+                "description": "Minutes to wait before auto-continuing deployment (0 means continue immediately)",
+                "type": "number",
+                "default": 0,
+                "nullable": true
+            }
+        ],
+        "terminate_blue_action": [
+            {
+                "description": "Action to take for blue instances after deployment (TERMINATE or KEEP_ALIVE)",
+                "type": "string",
+                "default": "TERMINATE",
+                "nullable": true
+            }
+        ],
+        "blue_termination_wait_minutes": [
+            {
+                "description": "Minutes to wait before terminating blue instances after successful deployment",
+                "type": "number",
+                "default": 5,
+                "nullable": true
+            }
+        ],
+        "create_test_listener": [
+            {
+                "description": "Whether to create an additional test listener for routing pre-production traffic to green target group",
+                "type": "bool",
+                "default": true,
+                "nullable": true
+            }
+        ],
+        "test_listener_port": [
+            {
+                "description": "Port for the test listener (used by CodeDeploy to route test traffic to green)",
+                "type": "number",
+                "default": 8443,
+                "nullable": true
+            }
+        ],
+        "wait_for_steady_state": [
+            {
+                "description": "Whether to wait for the ECS service to reach a steady state after creation/update",
+                "type": "bool",
+                "default": false,
+                "nullable": true
+            }
+        ],
+        "tags": [
+            {
+                "description": "A map of tags to apply to all resources",
+                "type": "map(string)",
+                "default": {},
+                "nullable": true
+            }
+        ]
+    }
+}

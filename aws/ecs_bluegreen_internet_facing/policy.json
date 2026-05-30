@@ -1,0 +1,117 @@
+{
+    "name": "ecs_bluegreen_internet_facing",
+    "policy": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "ECSPermissions",
+                "Action": [
+                    "ecs:CreateService",
+                    "ecs:UpdateService",
+                    "ecs:DeleteService",
+                    "ecs:DescribeServices",
+                    "ecs:RegisterTaskDefinition",
+                    "ecs:DeregisterTaskDefinition",
+                    "ecs:DescribeTaskDefinition",
+                    "ecs:ListTaskDefinitions"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            },
+            {
+                "Sid": "ALBPermissions",
+                "Action": [
+                    "elasticloadbalancing:CreateLoadBalancer",
+                    "elasticloadbalancing:DeleteLoadBalancer",
+                    "elasticloadbalancing:DescribeLoadBalancers",
+                    "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                    "elasticloadbalancing:CreateListener",
+                    "elasticloadbalancing:DeleteListener",
+                    "elasticloadbalancing:DescribeListeners",
+                    "elasticloadbalancing:ModifyListener",
+                    "elasticloadbalancing:CreateTargetGroup",
+                    "elasticloadbalancing:DeleteTargetGroup",
+                    "elasticloadbalancing:DescribeTargetGroups",
+                    "elasticloadbalancing:ModifyTargetGroupAttributes",
+                    "elasticloadbalancing:SetSecurityGroups",
+                    "elasticloadbalancing:SetSubnets"
+                ],
+                "Effect": "Allow",
+                "Resource": [
+                    "${module.module_name.alb_arn}",
+                    "${module.module_name.https_listener_arn}",
+                    "${module.module_name.blue_target_group_arn}",
+                    "${module.module_name.green_target_group_arn}"
+                ]
+            },
+            {
+                "Sid": "SecurityGroupPermissions",
+                "Action": [
+                    "ec2:CreateSecurityGroup",
+                    "ec2:DeleteSecurityGroup",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:AuthorizeSecurityGroupIngress",
+                    "ec2:AuthorizeSecurityGroupEgress",
+                    "ec2:RevokeSecurityGroupIngress",
+                    "ec2:RevokeSecurityGroupEgress"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            },
+            {
+                "Sid": "IAMPermissions",
+                "Action": [
+                    "iam:CreateRole",
+                    "iam:DeleteRole",
+                    "iam:GetRole",
+                    "iam:PassRole",
+                    "iam:AttachRolePolicy",
+                    "iam:DetachRolePolicy",
+                    "iam:PutRolePolicy",
+                    "iam:DeleteRolePolicy",
+                    "iam:GetRolePolicy"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            },
+            {
+                "Sid": "CodeDeployPermissions",
+                "Action": [
+                    "codedeploy:CreateApplication",
+                    "codedeploy:DeleteApplication",
+                    "codedeploy:GetApplication",
+                    "codedeploy:CreateDeploymentGroup",
+                    "codedeploy:DeleteDeploymentGroup",
+                    "codedeploy:GetDeploymentGroup",
+                    "codedeploy:UpdateDeploymentGroup",
+                    "codedeploy:CreateDeployment",
+                    "codedeploy:GetDeployment",
+                    "codedeploy:StopDeployment"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            },
+            {
+                "Sid": "CloudWatchLogsPermissions",
+                "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:DeleteLogGroup",
+                    "logs:DescribeLogGroups",
+                    "logs:PutRetentionPolicy"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            },
+            {
+                "Sid": "WAFAssociationPermissions",
+                "Action": [
+                    "wafv2:AssociateWebACL",
+                    "wafv2:DisassociateWebACL",
+                    "wafv2:GetWebACLForResource"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+            }
+        ]
+    }
+}

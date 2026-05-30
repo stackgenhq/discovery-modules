@@ -1,0 +1,30 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: ECS Blue/Green Internet-Facing Service
+  node:
+    label:
+      static: ECS Blue/Green Internet-Facing Service
+      template: ${name}
+    display_type: default
+
+discovery:
+  type: ecs_bluegreen_internet_facing
+  dnd_supported: false
+  references:
+    ecs_cluster_arn:
+      from: aws_ecs_cluster
+      output: arn
+    certificate_arn:
+      from: aws_acm_certificate
+      output: arn
+    public_subnet_ids:
+      from: aws_subnet
+      output: id
+    private_subnet_ids:
+      from: aws_subnet
+      output: id
+    waf_web_acl_arn:
+      from: aws_wafv2_web_acl
+      output: arn
