@@ -1,0 +1,30 @@
+name: aws_ecs_blue_green_deployment
+description: >
+  ECS service configured for blue/green deployments of internet-facing microservices
+  using AWS CodeDeploy. Enforces private networking (no public IP), CODE_DEPLOY
+  deployment controller, and ALB target group integration for zero-downtime releases.
+provider: aws
+resource_type: aws_ecs_service
+category: compute
+tags:
+  - ecs
+  - blue-green
+  - codedeploy
+  - microservices
+  - internet-facing
+  - security
+inputs:
+  - cluster_arn
+  - service_name
+  - task_definition_arn
+  - desired_count
+  - target_group_blue_arn
+  - container_name
+  - container_port
+  - subnet_ids
+  - security_group_ids
+  - tags
+outputs:
+  - id
+  - name
+  - cluster

@@ -1,0 +1,16 @@
+{
+  "output": {
+    "id": {
+      "value": "${aws_ecs_service.this.id}",
+      "description": "The Amazon Resource Name (ARN) of the ECS service"
+    },
+    "name": {
+      "value": "${aws_ecs_service.this.name}",
+      "description": "The name of the ECS service"
+    },
+    "cluster": {
+      "value": "${aws_ecs_service.this.cluster}",
+      "description": "The ARN of the ECS cluster the service is running on"
+    }
+  }
+}

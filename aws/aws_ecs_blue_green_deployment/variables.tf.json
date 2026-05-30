@@ -1,0 +1,47 @@
+{
+  "variable": {
+    "cluster_arn": {
+      "type": "string",
+      "description": "ARN of the ECS cluster"
+    },
+    "service_name": {
+      "type": "string",
+      "description": "Name of the ECS service"
+    },
+    "task_definition_arn": {
+      "type": "string",
+      "description": "ARN of the task definition to deploy"
+    },
+    "desired_count": {
+      "type": "number",
+      "description": "Desired number of running tasks",
+      "default": 1
+    },
+    "target_group_blue_arn": {
+      "type": "string",
+      "description": "ARN of the blue target group for the ALB"
+    },
+    "container_name": {
+      "type": "string",
+      "description": "Name of the container to associate with the load balancer"
+    },
+    "container_port": {
+      "type": "number",
+      "description": "Port on the container to associate with the load balancer",
+      "default": 80
+    },
+    "subnet_ids": {
+      "type": "list(string)",
+      "description": "List of subnet IDs for the ECS service network configuration"
+    },
+    "security_group_ids": {
+      "type": "list(string)",
+      "description": "List of security group IDs for the ECS service"
+    },
+    "tags": {
+      "type": "map(string)",
+      "description": "Tags to apply to the ECS service",
+      "default": {}
+    }
+  }
+}
