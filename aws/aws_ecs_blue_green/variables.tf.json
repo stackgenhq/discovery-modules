@@ -1,0 +1,52 @@
+{
+  "variable": {
+    "name": {
+      "type": "string",
+      "description": "Name of the ECS service"
+    },
+    "cluster_arn": {
+      "type": "string",
+      "description": "ARN of the ECS cluster"
+    },
+    "task_definition_arn": {
+      "type": "string",
+      "description": "ARN of the ECS task definition"
+    },
+    "desired_count": {
+      "type": "number",
+      "description": "Desired number of tasks",
+      "default": 2
+    },
+    "subnet_ids": {
+      "type": "list(string)",
+      "description": "List of subnet IDs for the ECS service"
+    },
+    "security_group_ids": {
+      "type": "list(string)",
+      "description": "Additional security group IDs",
+      "default": []
+    },
+    "blue_target_group_arn": {
+      "type": "string",
+      "description": "ARN of the blue target group for the load balancer"
+    },
+    "container_name": {
+      "type": "string",
+      "description": "Container name"
+    },
+    "container_port": {
+      "type": "number",
+      "description": "Container port",
+      "default": 80
+    },
+    "vpc_id": {
+      "type": "string",
+      "description": "VPC ID for the security group"
+    },
+    "tags": {
+      "type": "map(string)",
+      "description": "Tags to apply",
+      "default": {}
+    }
+  }
+}
