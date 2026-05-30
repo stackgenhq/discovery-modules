@@ -262,17 +262,17 @@ resource "aws_ecs_task_definition" "this" {
 # ECS Service (CODE_DEPLOY controller for blue/green)
 ##############################################################################
 resource "aws_ecs_service" "this" {
-  name                               = var.name
-  cluster                            = var.cluster_arn
-  task_definition                    = aws_ecs_task_definition.this.arn
-  desired_count                      = var.desired_count
-  launch_type                        = var.launch_type
-  platform_version                   = var.launch_type == "FARGATE" ? var.platform_version : null
-  enable_ecs_managed_tags            = true
-  propagate_tags                     = "SERVICE"
-  health_check_grace_period_seconds  = var.health_check_grace_period_seconds
-  wait_for_steady_state              = var.wait_for_steady_state
-  tags                               = var.tags
+  name                              = var.name
+  cluster                           = var.cluster_arn
+  task_definition                   = aws_ecs_task_definition.this.arn
+  desired_count                     = var.desired_count
+  launch_type                       = var.launch_type
+  platform_version                  = var.launch_type == "FARGATE" ? var.platform_version : null
+  enable_ecs_managed_tags           = true
+  propagate_tags                    = "SERVICE"
+  health_check_grace_period_seconds = var.health_check_grace_period_seconds
+  wait_for_steady_state             = var.wait_for_steady_state
+  tags                              = var.tags
 
   deployment_controller {
     type = "CODE_DEPLOY"
