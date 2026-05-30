@@ -1,0 +1,17 @@
+apiVersion: stackgen.io/v1alpha1
+kind: DiscoveryModule
+metadata:
+  name: aws-ecs-blue-green
+  labels:
+    category: compute/containers
+    provider: aws
+spec:
+  description: "Blue/green deployments of internet-facing microservices using AWS ECS with security requirements for internet-facing apps"
+  issueRef: 9
+  moduleDir: aws/aws_ecs_blue_green
+  tags:
+    - ecs
+    - blue-green
+    - fargate
+    - internet-facing
+    - security
