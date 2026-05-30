@@ -1,0 +1,258 @@
+{
+    "variable": {
+        "name": [
+            {
+                "description": "Base name for all resources created by this module",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "vpc_id": [
+            {
+                "description": "ID of the VPC in which to create resources",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "public_subnet_ids": [
+            {
+                "description": "List of public subnet IDs for the internet-facing Application Load Balancer",
+                "type": "list(string)",
+                "nullable": false
+            }
+        ],
+        "private_subnet_ids": [
+            {
+                "description": "List of private subnet IDs for the ECS tasks (tasks must not be directly reachable from the internet)",
+                "type": "list(string)",
+                "nullable": false
+            }
+        ],
+        "cluster_arn": [
+            {
+                "description": "ARN of the ECS cluster on which to run the service",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_definitions": [
+            {
+                "description": "JSON-encoded list of container definitions for the ECS task",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_name": [
+            {
+                "description": "Name of the container within the task definition that receives traffic from the load balancer",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "container_port": [
+            {
+                "description": "Port the container listens on",
+                "type": "number",
+                "nullable": false
+            }
+        ],
+        "certificate_arn": [
+            {
+                "description": "ARN of the ACM certificate to attach to the HTTPS listeners (port 443 and 8443)",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "execution_role_arn": [
+            {
+                "description": "ARN of the IAM role that grants the ECS container agent permission to pull images and publish logs",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "task_role_arn": [
+            {
+                "description": "ARN of the IAM role assumed by the running task (leave empty if not needed)",
+                "type": "string",
+                "nullable": true,
+                "default": ""
+            }
+        ],
+        "task_cpu": [
+            {
+                "description": "CPU units to allocate for the task (required for FARGATE; e.g. 256, 512, 1024)",
+                "type": "string",
+                "nullable": true,
+                "default": "256"
+            }
+        ],
+        "task_memory": [
+            {
+                "description": "Memory (MiB) to allocate for the task (required for FARGATE; e.g. 512, 1024, 2048)",
+                "type": "string",
+                "nullable": true,
+                "default": "512"
+            }
+        ],
+        "launch_type": [
+            {
+                "description": "ECS launch type: FARGATE or EC2",
+                "type": "string",
+                "nullable": true,
+                "default": "FARGATE"
+            }
+        ],
+        "platform_version": [
+            {
+                "description": "Fargate platform version (only used when launch_type is FARGATE)",
+                "type": "string",
+                "nullable": true,
+                "default": "LATEST"
+            }
+        ],
+        "cpu_architecture": [
+            {
+                "description": "CPU architecture for the Fargate runtime platform (X86_64 or ARM64)",
+                "type": "string",
+                "nullable": true,
+                "default": "X86_64"
+            }
+        ],
+        "operating_system_family": [
+            {
+                "description": "Operating system family for the Fargate runtime platform (e.g. LINUX)",
+                "type": "string",
+                "nullable": true,
+                "default": "LINUX"
+            }
+        ],
+        "desired_count": [
+            {
+                "description": "Desired number of task instances to run",
+                "type": "number",
+                "nullable": true,
+                "default": 2
+            }
+        ],
+        "health_check_grace_period_seconds": [
+            {
+                "description": "Seconds to ignore failing load balancer health checks after a task starts",
+                "type": "number",
+                "nullable": true,
+                "default": 60
+            }
+        ],
+        "wait_for_steady_state": [
+            {
+                "description": "Whether Terraform should wait for the ECS service to reach a steady state before completing",
+                "type": "bool",
+                "nullable": true,
+                "default": false
+            }
+        ],
+        "ssl_policy": [
+            {
+                "description": "SSL/TLS security policy for the HTTPS listeners. Use a modern policy to enforce TLS 1.2+",
+                "type": "string",
+                "nullable": true,
+                "default": "ELBSecurityPolicy-TLS13-1-2-2021-06"
+            }
+        ],
+        "enable_deletion_protection": [
+            {
+                "description": "If true, prevents deletion of the ALB via the AWS console/API (recommended for production)",
+                "type": "bool",
+                "nullable": true,
+                "default": true
+            }
+        ],
+        "alb_idle_timeout": [
+            {
+                "description": "ALB idle connection timeout in seconds",
+                "type": "number",
+                "nullable": true,
+                "default": 60
+            }
+        ],
+        "alb_access_logs_bucket": [
+            {
+                "description": "S3 bucket name to store ALB access logs (leave empty to disable access logging)",
+                "type": "string",
+                "nullable": true,
+                "default": ""
+            }
+        ],
+        "alb_access_logs_prefix": [
+            {
+                "description": "S3 key prefix for ALB access logs",
+                "type": "string",
+                "nullable": true,
+                "default": ""
+            }
+        ],
+        "deregistration_delay": [
+            {
+                "description": "Seconds for the load balancer to wait before deregistering a target",
+                "type": "string",
+                "nullable": true,
+                "default": "30"
+            }
+        ],
+        "health_check_path": [
+            {
+                "description": "HTTP path used for ALB target group health checks",
+                "type": "string",
+                "nullable": true,
+                "default": "/health"
+            }
+        ],
+        "health_check_healthy_threshold": [
+            {
+                "description": "Number of consecutive successful health checks before a target is considered healthy",
+                "type": "number",
+                "nullable": true,
+                "default": 3
+            }
+        ],
+        "health_check_unhealthy_threshold": [
+            {
+                "description": "Number of consecutive failed health checks before a target is considered unhealthy",
+                "type": "number",
+                "nullable": true,
+                "default": 3
+            }
+        ],
+        "health_check_interval": [
+            {
+                "description": "Seconds between health check requests",
+                "type": "number",
+                "nullable": true,
+                "default": 30
+            }
+        ],
+        "health_check_timeout": [
+            {
+                "description": "Seconds before a health check request times out",
+                "type": "number",
+                "nullable": true,
+                "default": 5
+            }
+        ],
+        "health_check_matcher": [
+            {
+                "description": "HTTP status codes (or range) to treat as healthy (e.g. \"200\" or \"200-299\")",
+                "type": "string",
+                "nullable": true,
+                "default": "200"
+            }
+        ],
+        "tags": [
+            {
+                "description": "Map of tags to apply to all resources",
+                "type": "map(string)",
+                "nullable": true,
+                "default": {}
+            }
+        ]
+    }
+}
