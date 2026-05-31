@@ -1,0 +1,204 @@
+{
+    "variable": {
+        "name": [
+            {
+                "description": "The name of the ECS service",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "cluster": [
+            {
+                "description": "The ARN of the ECS cluster to run the service on",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "availability_zone_rebalancing": [
+            {
+                "description": "The availability zone rebalancing strategy to use",
+                "type": "string",
+                "nullable": true,
+                "default": "DISABLED"
+            }
+        ],
+        "task_definition": [
+            {
+                "description": "The ARN of the task definition to run on the service",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "launch_type": [
+            {
+                "description": "The launch type on which to run your service",
+                "type": "string",
+                "nullable": true,
+                "default": "EC2"
+            }
+        ],
+        "force_delete": [
+            {
+                "description": "Whether to force a new deployment of the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "desired_count": [
+            {
+                "description": "The number of instances of the task to run on the service",
+                "type": "number",
+                "nullable": true
+            }
+        ],
+        "platform_version": [
+            {
+                "description": "The platform version on which to run your service",
+                "type": "string",
+                "nullable": true,
+                "default": "LATEST"
+            }
+        ],
+        "propagate_tags": [
+            {
+                "description": "Specifies whether to propagate the tags to the tasks",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "scheduling_strategy": [
+            {
+                "description": "The scheduling strategy to use for the service",
+                "type": "string",
+                "nullable": true,
+                "default": "REPLICA"
+            }
+        ],
+        "deployment_maximum_percent": [
+            {
+                "description": "The upper limit of the number of tasks in a service",
+                "type": "number",
+                "nullable": true
+            }
+        ],
+        "deployment_minimum_healthy_percent": [
+            {
+                "description": "The lower limit of the number of tasks in a service",
+                "type": "number",
+                "nullable": true
+            }
+        ],
+        "enable_ecs_managed_tags": [
+            {
+                "description": "Whether to enable Amazon ECS managed tags for the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "enable_execute_command": [
+            {
+                "description": "Whether to enable execute command for the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "force_new_deployment": [
+            {
+                "description": "Whether to force a new deployment of the service",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "health_check_grace_period_seconds": [
+            {
+                "description": "The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has started",
+                "type": "number",
+                "nullable": true
+            }
+        ],
+        "iam_role": [
+            {
+                "description": "The IAM role to use for the service",
+                "type": "string",
+                "nullable": true
+            }
+        ],
+        "wait_for_steady_state": [
+            {
+                "description": "Whether to wait for the service to reach a steady state before proceeding",
+                "type": "bool",
+                "nullable": true
+            }
+        ],
+        "tags": [
+            {
+                "description": "A map of tags to add to all resources",
+                "type": "map(string)",
+                "nullable": true
+            }
+        ],
+        "load_balancer": [
+            {
+                "description": "A list of load balancer configuration blocks",
+                "type": "list(object({ target_group_arn: string, container_name: string, container_port: number, elb_name: string }))",
+                "nullable": true
+            }
+        ],
+        "capacity_provider_strategy": [
+            {
+                "description": "A list of capacity provider strategy blocks",
+                "type": "list(object({ capacity_provider: string, base: number, weight: number }))",
+                "nullable": true
+            }
+        ],
+        "deployment_circuit_breaker": [
+            {
+                "description": "A list of deployment circuit breaker blocks",
+                "type": "list(object({ enable: bool, rollback: bool }))",
+                "nullable": true
+            }
+        ],
+        "network_configuration": [
+            {
+                "description": "A list of network configuration blocks",
+                "type": "list(object({ subnets: list(string), security_groups: list(string), assign_public_ip: bool }))",
+                "nullable": true
+            }
+        ],
+        "deployment_controller": [
+            {
+                "description": "A list of deployment controller blocks",
+                "type": "list(object({ type: string }))",
+                "nullable": true
+            }
+        ],
+        "ordered_placement_strategy": [
+            {
+                "description": "A list of ordered placement strategy blocks",
+                "type": "list(object({ type: string, field: string }))",
+                "nullable": true
+            }
+        ],
+        "placement_constraints": [
+            {
+                "description": "A list of placement constraints",
+                "type": "list(object({ type: string, expression: string }))",
+                "nullable": true
+            }
+        ],
+        "service_registries": [
+            {
+                "description": "A list of service registry blocks",
+                "type": "list(object({ registry_arn: string, container_name: string, container_port: number, port: number }))",
+                "nullable": true
+            }
+        ],
+        "timeouts": [
+            {
+                "description": "A map of timeouts",
+                "type": "object({ create: optional(string), delete: optional(string), update: optional(string) })",
+                "nullable": true
+            }
+        ]
+    }
+}
