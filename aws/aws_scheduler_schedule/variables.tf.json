@@ -1,0 +1,104 @@
+{
+    "variable": {
+        "name": [
+            {
+                "description": "The name of the scheduler schedule.",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "description": [
+            {
+                "description": "The description of the scheduler schedule.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "schedule_expression": [
+            {
+                "description": "The schedule expression (e.g. rate(5 minutes) or cron(0 20 * * ? *)).",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "flexible_time_window_mode": [
+            {
+                "description": "Determines whether the schedule is invoked within a flexible time window. Valid values: OFF, FLEXIBLE.",
+                "type": "string",
+                "default": "OFF",
+                "nullable": false
+            }
+        ],
+        "group_name": [
+            {
+                "description": "The name of the schedule group to associate with the schedule.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "start_date": [
+            {
+                "description": "The date, in UTC, after which the schedule can begin invoking its target.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "end_date": [
+            {
+                "description": "The date, in UTC, before which the schedule can invoke its target.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "schedule_expression_timezone": [
+            {
+                "description": "The timezone in which the scheduling expression is evaluated.",
+                "type": "string",
+                "default": "UTC",
+                "nullable": false
+            }
+        ],
+        "kms_key_arn": [
+            {
+                "description": "The ARN of the KMS key to use for encryption.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ],
+        "state": [
+            {
+                "description": "Specifies whether the schedule is enabled or disabled. Valid values: ENABLED, DISABLED.",
+                "type": "string",
+                "default": "ENABLED",
+                "nullable": false
+            }
+        ],
+        "target_arn": [
+            {
+                "description": "The ARN of the target for the schedule.",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "target_role_arn": [
+            {
+                "description": "The ARN of the IAM role that the scheduler assumes when invoking the target.",
+                "type": "string",
+                "nullable": false
+            }
+        ],
+        "target_input": [
+            {
+                "description": "The JSON text passed to the target. If not set, no input is passed.",
+                "type": "string",
+                "default": null,
+                "nullable": true
+            }
+        ]
+    }
+}
