@@ -1,0 +1,10 @@
+discovery:
+  type: aws_ecs_service
+representation:
+  side_panel:
+    label: ECS Blue/Green Secure
+node:
+  label:
+    static: ECS Blue/Green Secure
+variables:
+  name: name
