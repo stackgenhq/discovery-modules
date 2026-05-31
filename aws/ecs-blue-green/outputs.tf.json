@@ -1,0 +1,8 @@
+{
+    "output": {
+        "id": {
+            "description": "The ID of the ECS service",
+            "value": "${aws_ecs_service.this.id}"
+        }
+    }
+}

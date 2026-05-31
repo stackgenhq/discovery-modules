@@ -1,0 +1,18 @@
+representation:
+  side_panel:
+    label: ECS Blue/Green Service
+  node:
+    label:
+      static: ECS Blue/Green Service
+discovery:
+  type: aws_ecs_service
+variables:
+  - name
+  - cluster
+  - task_definition
+  - subnets
+  - security_groups
+  - assign_public_ip
+  - target_group_arn
+  - container_name
+  - container_port
