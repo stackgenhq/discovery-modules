@@ -1,0 +1,21 @@
+{
+    "Name": "aws_sqs_queue",
+    "Policy": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "Default",
+          "Effect": "Allow",
+          "Action": [
+            "sqs:GetQueueAttributes",
+            "sqs:ListQueueTags",
+            "sqs:ListQueues"
+          ],
+          "Resource": [
+            "${module.module_name.arn}"
+          ]
+        }
+      ]
+    }
+  }
+  
