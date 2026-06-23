@@ -118,3 +118,7 @@ In short: keep Terraform and **`.stackgen/stackgen.yaml`** in sync, validate met
 ## License
 
 This project is licensed under the Apache License 2.0 — see [LICENSE](LICENSE).
+
+## SPEC_SYMPHONY.md usage
+
+Use `SPEC_SYMPHONY.md` as the repo-specific guide for spec-symphony workflows. Read it before starting work to understand the local conventions, then follow its instructions alongside the specs in `aidlc-docs/` when implementing or reviewing changes.
