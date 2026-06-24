@@ -2,6 +2,7 @@
   "variable": {
     "app_service_plan_id": [
       {
+        "default": null,
         "description": "ID of the App Service Plan to associate with the certificate; must be in the same region as the certificate.",
         "nullable": true,
         "type": "string"
@@ -9,6 +10,7 @@
     ],
     "key_vault_id": [
       {
+        "default": null,
         "description": "Specifies the ID of the Key Vault containing the certificate. Must be in the same Azure region as the App Service Certificate.",
         "nullable": true,
         "type": "string"
@@ -16,6 +18,7 @@
     ],
     "key_vault_secret_id": [
       {
+        "default": null,
         "description": "ID of the Key Vault Secret containing the private certificate. Must be in the format of a full resource ID.",
         "nullable": true,
         "type": "string"
@@ -30,6 +33,7 @@
     ],
     "password": [
       {
+        "default": null,
         "description": "Password used to access the PFX file for the App Service Certificate; must match the password set during the certificate export.",
         "nullable": true,
         "type": "string"
@@ -37,6 +41,7 @@
     ],
     "pfx_blob": [
       {
+        "default": null,
         "description": "PFX certificate file data in base64 format, used for importing the SSL/TLS certificate. Must be a valid PFX file.",
         "nullable": true,
         "type": "string"
@@ -44,6 +49,7 @@
     ],
     "tags": [
       {
+        "default": null,
         "description": "Key-value pairs to organize and categorize resources, supporting resource management and billing; values must be strings.",
         "nullable": true,
         "type": "map(string)"
@@ -51,9 +57,22 @@
     ],
     "timeouts": [
       {
+        "default": null,
         "description": "Defines the timeouts for create, update, and delete operations of the App Service Certificate.",
         "nullable": true,
         "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"
+      }
+    ],
+    "resource_group_name": [
+      {
+        "type": "string",
+        "description": "Name of the resource group that this resource will be created in."
+      }
+    ],
+    "location": [
+      {
+        "type": "string",
+        "description": "Location that this resource will be created in. (e.g. eastus2, southeastasia)"
       }
     ]
   }

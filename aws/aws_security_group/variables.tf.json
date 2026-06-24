@@ -4,7 +4,8 @@
             {
                 "description": "Name of the security group. If omitted, Terraform will assign a random, unique name.",
                 "nullable": true,
-                "type": "string"
+                "type": "string",
+                "default": null
             }
         ],
         "description": [
@@ -19,7 +20,8 @@
             {
                 "description": "VPC ID",
                 "nullable": true,
-                "type": "string"
+                "type": "string",
+                "default": null
             }
         ],
         "egress": [
@@ -58,7 +60,8 @@
             {
                 "description": "Timeout for the security group",
                 "type": "object({ create: optional(string), delete: optional(string)})",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }

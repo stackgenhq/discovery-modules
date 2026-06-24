@@ -65,6 +65,7 @@
     ],
     "tags": [
       {
+        "default": null,
         "description": "A map of tags to assign to the Key Vault.",
         "nullable": true,
         "type": "map(string)"

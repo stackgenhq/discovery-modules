@@ -2,6 +2,7 @@
   "variable": {
     "encryption": [
       {
+        "default": [],
         "description": "Defines encryption settings, including identity and key vault details",
         "nullable": true,
         "type": "list(object({identity_client_id: optional(string),key_vault_key_identifier: optional(string)}))"
@@ -9,6 +10,7 @@
     ],
     "identity": [
       {
+        "default": [],
         "description": "Configures the managed identity, including IDs and tenant information",
         "nullable": true,
         "type": "list(object({identity_ids: optional(list(string)),type: string}))"
@@ -31,6 +33,7 @@
     ],
     "public_network_access": [
       {
+        "default": null,
         "description": "Defines access level for public networks (e.g., Enabled, Disabled)",
         "nullable": true,
         "type": "string"
@@ -46,6 +49,7 @@
     ],
     "replica": [
       {
+        "default": [],
         "description": "Specifies replica settings, including location and endpoint details",
         "nullable": true,
         "type": "list(object({endpoint: optional(string),id: optional(string),location: string,name: string}))"
@@ -69,6 +73,7 @@
     ],
     "tags": [
       {
+        "default": null,
         "description": "Defines metadata as key-value pairs for resource categorization",
         "nullable": true,
         "type": "map(string)"
@@ -76,6 +81,7 @@
     ],
     "timeouts": [
       {
+        "default": null,
         "description": "Configures operation timeouts for create, read, update, and delete",
         "nullable": true,
         "type": "object({create: optional(string),delete: optional(string),read: optional(string),update: optional(string)})"

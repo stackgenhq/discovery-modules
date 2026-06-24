@@ -4,14 +4,16 @@
             {
                 "type": "string",
                 "description": "The name of the parameter group",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "name_prefix": [
             {
                 "type": "string",
                 "description": "Creates a unique name beginning with the specified prefix",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "family": [
@@ -25,28 +27,32 @@
             {
                 "type": "string",
                 "description": "The description of the parameter group",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "parameter": [
             {
                 "type": "list(object({name: string, value: string, apply_method: string}))",
                 "description": "A list of parameter values",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "skip_destroy": [
             {
                 "type": "bool",
                 "description": "Set to true if you do not wish the parameter group to be deleted at destroy time",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tags": [
             {
                 "type": "map(string)",
                 "description": "A map of tags to assign to the parameter group",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }
