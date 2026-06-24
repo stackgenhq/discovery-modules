@@ -71,11 +71,11 @@ Modules scanned are the immediate subdirectories of **`aws/`**, **`azurerm/`**, 
 
 ## Tools
 
-Utilities for **publishing** and **maintaining** discovery modules (upload flow above).
+Utilities for **publishing** and **maintaining** discovery modules (upload flow above). Contributors should use [`tools/README.md`](tools/README.md) as the canonical guide for publishing modules with `upload_stackgen_modules.sh`, including prerequisites, provider-specific examples, and troubleshooting. Keep this section brief and use the tools guide for the full workflow instead of duplicating upload instructions here.
 
 ### `upload_stackgen_modules.sh`
 
-For each module under **`aws/`**, **`azurerm/`**, and **`gcp/`**, this script invokes **`stackgen upload custom-modules`**. Usage, flags, and behavior are documented under [Uploading to StackGen](#uploading-to-stackgen).
+For each module under **`aws/`**, **`azurerm/`**, and **`gcp/`**, this script invokes **`stackgen upload custom-modules`**. See [`tools/README.md`](tools/README.md) for the full flag reference and example upload commands.
 
 ### Other files
 

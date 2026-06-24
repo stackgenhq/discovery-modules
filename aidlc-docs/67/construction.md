@@ -6,6 +6,8 @@
 3. Run validate (tests, lint, ci-spec-linkage)
 
 ## Tasks
-- [ ] Implement feature per inception.md
-- [ ] Update tests as needed
-- [ ] Ensure aidlc-docs/67/ changes with code changes
+- [x] Implement feature per inception.md
+- [x] Update tests as needed
+- [x] Ensure aidlc-docs/67/ changes with code changes
+- [x] Add dedicated contributor documentation in `tools/README.md` for StackGen module uploads
+- [x] Link the root `README.md` Tools section to `tools/README.md` without duplicating the full guide
