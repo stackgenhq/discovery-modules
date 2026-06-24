@@ -1,0 +1,27 @@
+{
+  "name": "aws_ecs_service",
+  "policy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Default",
+        "Effect": "Allow",
+        "Action": [
+          "ecs:Describe*",
+          "ecs:List*",
+          "ecs:DiscoverPollEndpoint",
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Resource": [
+          "${module.module_name.arn}"
+        ]
+      }
+    ]
+  }
+}
