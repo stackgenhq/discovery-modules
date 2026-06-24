@@ -1,0 +1,45 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: SQS Queue
+  node:
+    label:
+      static: SQS Queue
+      template: ${name}
+    display_type: default
+
+variables:
+  deduplication_scope:
+    description: Specifies whether message deduplication occurs at the message group or queue level.
+    type: string
+    options: 
+      - messageGroup
+      - queue
+    ui_control: select
+  fifo_queue:
+    ui_control: select
+    description: Boolean designating a FIFO queue. If not set, it defaults to false making it standard.
+    type: bool
+    options: 
+      - true
+      - false
+  content_based_deduplication:
+    description: "Enables content-based deduplication for FIFO queues."
+    type: bool
+    options: 
+      - true
+      - false
+    ui_control: select
+  fifo_throughput_limit:
+    description: Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
+    type: string
+    options: 
+      - perQueue
+      - perMessageGroupId
+    ui_control: select
+
+discovery:
+  type: aws_pipes_pipe
+  dnd_supported: false
+  data_source: data_aws_pipes_pipe
