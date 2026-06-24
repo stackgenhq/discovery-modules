@@ -34,7 +34,7 @@ The [`tools/`](tools/) directory contains scripts and helpers to **publish these
 
 ## Uploading to StackGen
 
-Uploads use the **StackGen CLI**. The script **`tools/upload_stackgen_modules.sh`** is a thin wrapper: for each module it runs **`stackgen upload custom-modules`** (with `--provider`, `--name`, and optional `--repo-url` / `--branch` / `--tag` / `--project`).
+Uploads use the **StackGen CLI**. The script **`tools/upload_stackgen_modules.sh`** bulk-uploads modules by running **`stackgen upload custom-modules`** in parallel (with `--provider`, `--name`, and optional `--repo-url` / `--branch` / `--tag` / `--project`). See [`tools/README.md`](tools/README.md) for full documentation, flag reference, and usage examples.
 
 Modules scanned are the immediate subdirectories of **`aws/`**, **`azurerm/`**, and **`gcp/`**, with optional `--templates` filtering.
 
@@ -51,36 +51,40 @@ Modules scanned are the immediate subdirectories of **`aws/`**, **`azurerm/`**, 
 
 ### Options
 
-| Flag | Required | Description |
-|------|----------|-------------|
-| `--token` | Yes | StackGen authentication token |
-| `--url` | No | StackGen base URL (otherwise use your CLI default / env) |
-| `--project` | No | Project ID to upload modules into |
-| `--templates` | No | Comma-separated module folder names (e.g. `aws_ec2,aws_s3`) to upload only those |
-| `--repo-url` | No | Repository URL for source tracking in StackGen |
-| `--branch` | No* | Git branch name (use only one of `--branch` or `--tag`) |
-| `--tag` | No* | Git tag name |
+| Flag | Required | Default | Description |
+|------|----------|---------|-------------|
+| `--token` | Yes | — | StackGen authentication token |
+| `--url` | No | CLI default | StackGen base URL (e.g., `https://seti.cloud.stackgen.com`) |
+| `--project` | No | — | Project ID for auth context (modules are always org-wide) |
+| `--provider` | No | All | Filter to a single provider: `aws`, `azurerm`, or `gcp` |
+| `--templates` | No | All modules | Comma-separated module folder names (e.g. `aws_ec2,aws_s3`) |
+| `--repo-url` | No | — | Repository URL for source tracking in StackGen |
+| `--branch` | No | — | Git branch name (mutually exclusive with `--tag`; requires `--repo-url`) |
+| `--tag` | No | — | Git tag name (mutually exclusive with `--branch`; requires `--repo-url`) |
+| `--version` | No | `1.0` | Module version string |
+| `--overwrite-version` | No | `false` | Overwrite an existing version instead of skipping |
+| `--parallel` | No | `10` | Number of concurrent uploads |
 
 ### Behavior
 
 - **Minimal input**: Only `--token` is strictly required by the script.
-- **Batch upload**: Without `--templates`, all modules in those provider trees are uploaded (one CLI invocation per module).
+- **Parallel uploads**: Modules are uploaded concurrently using `xargs -P` (default: 10 workers, tunable with `--parallel`).
+- **Retry with backoff**: Each upload is retried up to 3 times with exponential backoff (1s → 2s → 4s) for transient failures.
 - **Provider mapping**: `azurerm` modules are uploaded with StackGen provider **`azure`**.
-- **Skip existing**: If the CLI reports that the version name already exists, that module is skipped and the script continues.
-- **Errors**: Other failures stop the run with a non-zero exit code.
+- **Skip existing**: If the CLI reports that the version name already exists, that module is skipped (use `--overwrite-version` to force).
+- **Fail-at-end**: Failures are collected and reported in a summary after all uploads complete, rather than stopping on the first error.
+- **Cross-platform**: Works on both macOS (BSD) and Linux (GNU).
 
 ## Tools
 
-Utilities for **publishing** and **maintaining** discovery modules (upload flow above).
+Utilities for **publishing** and **maintaining** discovery modules. See [`tools/README.md`](tools/README.md) for full documentation.
 
-### `upload_stackgen_modules.sh`
-
-For each module under **`aws/`**, **`azurerm/`**, and **`gcp/`**, this script invokes **`stackgen upload custom-modules`**. Usage, flags, and behavior are documented under [Uploading to StackGen](#uploading-to-stackgen).
-
-### Other files
-
-- **`stackgen_yaml_schema.json`** — JSON Schema for `.stackgen/stackgen.yaml` (validation and editor support).
-- **`dummy.yaml`** — Sample / fixture input for development.
+| Script | Description |
+|--------|-------------|
+| **`upload_stackgen_modules.sh`** | Bulk-uploads modules to StackGen with parallel execution, retries, and progress tracking. See [Uploading to StackGen](#uploading-to-stackgen). |
+| **`bulk-tag-modules.sh`** | Creates `v1.0.0` Git tags for all module subdirectories (dry-run by default). Required by the `module-backfill.yml` workflow. |
+| **`stackgen_yaml_schema.json`** | JSON Schema for `.stackgen/stackgen.yaml` (validation and editor support). |
+| **`dummy.yaml`** | Sample / fixture input for development. |
 
 ## Versioning and provider compatibility
 
