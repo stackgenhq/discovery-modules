@@ -1,0 +1,24 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: CloudWatch Event Rule
+  node:
+    label:
+      static: CloudWatch Event Rule
+      template: CloudWatch Event Rule
+    display_type: default
+
+variables:
+  state:
+    description: Indicates whether the rule is enabled or disabled
+    type: string
+    options: 
+      - ENABLED
+      - DISABLED
+      - ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS
+    ui_control: select
+
+discovery:
+  type: aws_scheduler_schedule
+  dnd_supported: false

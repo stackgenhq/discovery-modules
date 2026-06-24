@@ -1,0 +1,22 @@
+{
+    "output": {
+        "id": [
+            {
+                "description": "The ARN of the scheduler schedule.",
+                "value": "${aws_scheduler_schedule.this.id}"
+            }
+        ],
+        "arn": [
+            {
+                "description": "The ARN of the scheduler schedule.",
+                "value": "${aws_scheduler_schedule.this.arn}"
+            }
+        ],
+        "name": [
+            {
+                "description": "The name of the scheduler schedule.",
+                "value": "${aws_scheduler_schedule.this.name}"
+            }
+        ]
+    }
+}
