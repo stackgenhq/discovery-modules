@@ -34,7 +34,7 @@ The [`tools/`](tools/) directory contains scripts and helpers to **publish these
 
 ## Uploading to StackGen
 
-Uploads use the **StackGen CLI**. The script **`tools/upload_stackgen_modules.sh`** is a thin wrapper: for each module it runs **`stackgen upload custom-modules`** (with `--provider`, `--name`, and optional `--repo-url` / `--branch` / `--tag` / `--project`).
+Uploads use the **StackGen CLI**. The script **`tools/upload_stackgen_modules.sh`** is a thin wrapper: for each module it runs **`stackgen upload custom-modules`** (with `--provider`, `--name`, and optional `--repo-url` / `--branch` / `--tag`).
 
 Modules scanned are the immediate subdirectories of **`aws/`**, **`azurerm/`**, and **`gcp/`**, with optional `--templates` filtering.
 
@@ -55,7 +55,6 @@ Modules scanned are the immediate subdirectories of **`aws/`**, **`azurerm/`**, 
 |------|----------|-------------|
 | `--token` | Yes | StackGen authentication token |
 | `--url` | No | StackGen base URL (otherwise use your CLI default / env) |
-| `--project` | No | Project ID to upload modules into |
 | `--templates` | No | Comma-separated module folder names (e.g. `aws_ec2,aws_s3`) to upload only those |
 | `--repo-url` | No | Repository URL for source tracking in StackGen |
 | `--branch` | No* | Git branch name (use only one of `--branch` or `--tag`) |

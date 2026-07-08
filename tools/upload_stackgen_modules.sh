@@ -2,13 +2,12 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 --token <token> [--url <stackgen-url>] [--project <project-id>] [--templates name1,name2] [--repo-url <repo>] [--branch <branch>|--tag <tag>]"
+  echo "Usage: $0 --token <token> [--url <stackgen-url>] [--templates name1,name2] [--repo-url <repo>] [--branch <branch>|--tag <tag>]"
   exit 1
 }
 
 TOKEN=""
 STACKGEN_URL=""
-PROJECT_ID=""
 TEMPLATE_TYPES=""
 REPO_URL=""
 BRANCH=""
@@ -18,7 +17,6 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --token) TOKEN="${2:-}"; shift 2 ;;
     --url) STACKGEN_URL="${2:-}"; shift 2 ;;
-    --project) PROJECT_ID="${2:-}"; shift 2 ;;
     --templates) TEMPLATE_TYPES="${2:-}"; shift 2 ;;
     --repo-url) REPO_URL="${2:-}"; shift 2 ;;
     --branch) BRANCH="${2:-}"; shift 2 ;;
@@ -82,11 +80,7 @@ if [[ ${#MODULES[@]} -eq 0 ]]; then
   exit 1
 fi
 
-if [[ -n "$PROJECT_ID" ]]; then
-  echo "Uploading ${#MODULES[@]} module(s) to project ${PROJECT_ID}..."
-else
-  echo "Uploading ${#MODULES[@]} module(s)..."
-fi
+echo "Uploading ${#MODULES[@]} module(s)..."
 
 for module in "${MODULES[@]}"; do
   providerFolder="$(basename "$(dirname "$module")")"
@@ -107,12 +101,7 @@ for module in "${MODULES[@]}"; do
   if [[ -n "$TAG" ]]; then
     cmd+=(--tag "$TAG")
   fi
-  if [[ -n "$PROJECT_ID" ]]; then
-    cmd+=(--project "$PROJECT_ID")
-    cmd+=(--scope project)
-  else
-    cmd+=(--scope tenant)
-  fi
+  cmd+=(--scope tenant)
   set +e
   output="$("${cmd[@]}" 2>&1)"
   status=$?
