@@ -11,7 +11,8 @@
             {
                 "type": "bool",
                 "description": "Allow major version upgrade",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "apply_immediately": [
@@ -34,7 +35,8 @@
             {
                 "type": "string",
                 "description": "The availability zone",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "backup_retention_period": [
@@ -57,28 +59,32 @@
             {
                 "type": "string",
                 "description": "The backup window",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "blue_green_update": [
             {
                 "type": "list(object({enabled: bool}))",
                 "description": "The blue green update",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "ca_cert_identifier": [
             {
                 "type": "string",
                 "description": "The CA certificate identifier",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "character_set_name": [
             {
                 "type": "string",
                 "description": "The character set name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "copy_tags_to_snapshot": [
@@ -93,28 +99,32 @@
             {
                 "type": "string",
                 "description": "The custom IAM instance profile",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "db_name": [
             {
                 "type": "string",
                 "description": "The database name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "db_subnet_group_name": [
             {
                 "type": "string",
                 "description": "The database subnet group name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "dedicated_log_volume": [
             {
                 "type": "bool",
                 "description": "Dedicated log volume",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "delete_automated_backups": [
@@ -137,49 +147,56 @@
             {
                 "type": "string",
                 "description": "The domain",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "domain_auth_secret_arn": [
             {
                 "type": "string",
                 "description": "The domain auth secret ARN",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "domain_dns_ips": [
             {
                 "type": "list(string)",
                 "description": "The domain DNS IPs",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "domain_fqdn": [
             {
                 "type": "string",
                 "description": "The domain FQDN",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "domain_iam_role_name": [
             {
                 "type": "string",
                 "description": "The domain IAM role name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "domain_ou": [
             {
                 "type": "string",
                 "description": "The domain OU",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "enabled_cloudwatch_logs_exports": [
             {
                 "type": "list(string)",
                 "description": "The enabled CloudWatch logs exports",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "engine": [
@@ -193,7 +210,8 @@
             {
                 "type": "string",
                 "description": "The engine version",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "engine_lifecycle_support": [
@@ -208,28 +226,32 @@
             {
                 "type": "string",
                 "description": "The final snapshot identifier",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "iam_database_authentication_enabled": [
             {
                 "type": "bool",
                 "description": "The IAM database authentication enabled",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "identifier": [
             {
                 "type": "string",
                 "description": "The identifier",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "identifier_prefix": [
             {
                 "type": "string",
                 "description": "The identifier prefix",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "instance_class": [
@@ -243,49 +265,56 @@
             {
                 "type": "number",
                 "description": "The IOPS",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "kms_key_id": [
             {
                 "type": "string",
                 "description": "The KMS key ID",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "license_model": [
             {
                 "type": "string",
                 "description": "The license model",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "maintenance_window": [
             {
                 "type": "string",
                 "description": "The maintenance window",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "manage_master_user_password": [
             {
                 "type": "bool",
                 "description": "Manage master user password",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "master_user_secret_kms_key_id": [
             {
                 "type": "string",
                 "description": "The master user secret KMS key ID",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "max_allocated_storage": [
             {
                 "type": "number",
                 "description": " Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "monitoring_interval": [
@@ -300,49 +329,56 @@
             {
                 "type": "string",
                 "description": "The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "multi_az": [
             {
                 "type": "bool",
                 "description": "Specifies if the RDS instance is multi-AZ",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "nchar_character_set_name": [
             {
                 "type": "string",
                 "description": "The NCHAR character set name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "network_type": [
             {
                 "type": "string",
                 "description": "The network type",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "option_group_name": [
             {
                 "type": "string",
                 "description": "The option group name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "parameter_group_name": [
             {
                 "type": "string",
                 "description": "The parameter group name",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "password": [
             {
                 "type": "string",
                 "description": " Password for the master DB user.",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "performance_insights_enabled": [
@@ -357,21 +393,24 @@
             {
                 "type": "string",
                 "description": "The performance insights KMS key ID",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "performance_insights_retention_period": [
             {
                 "type": "number",
                 "description": "The performance insights retention period",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "port": [
             {
                 "type": "number",
                 "description": "The port",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "publicly_accessible": [
@@ -386,42 +425,48 @@
             {
                 "type": "string",
                 "description": "The replica mode",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "replicate_source_db": [
             {
                 "type": "string",
                 "description": "The replicate source DB",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "upgrade_storage_config": [
             {
                 "type": "bool",
                 "description": "The upgrade storage config",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "restore_to_point_in_time": [
             {
                 "type": "list(object({restore_time: string, source_db_instance_identifier: string, source_db_instance_automated_backups_arn: string, source_dbi_resource_id: string, use_latest_restorable_time: bool}))",
                 "description": "The restore to point in time",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "skip_final_snapshot": [
             {
                 "type": "bool",
                 "description": "Skip final snapshot",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "snapshot_identifier": [
             {
                 "type": "string",
                 "description": "The snapshot identifier",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "storage_encrypted": [
@@ -436,28 +481,32 @@
             {
                 "type": "string",
                 "description": "The storage type",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "storage_throughput": [
             {
                 "type": "number",
                 "description": "The storage throughput",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "tags": [
             {
                 "type": "map(string)",
                 "description": "The tags",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "timezone": [
             {
                 "type": "string",
                 "description": "The timezone",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "username": [
@@ -471,28 +520,32 @@
             {
                 "type": "list(string)",
                 "description": "The VPC security group IDs",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "customer_owned_ip_enabled": [
             {
                 "type": "bool",
                 "description": "The customer owned IP enabled",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "timeouts": [
             {
                 "type": "object({create: optional(string), update: optional(string), delete: optional(string)})",
                 "description": "The timeouts",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ],
         "s3_import": [
             {
                 "type": "list(object({bucket_name: string, bucket_prefix: optional(string), ingestion_role: string, source_engine: string, source_engine_version: string}))",
                 "description": "The S3 import",
-                "nullable": true
+                "nullable": true,
+                "default": null
             }
         ]
     }

@@ -23,6 +23,7 @@
     ],
     "client_certificate_exclusion_paths": [
       {
+        "default": null,
         "description": "Specifies paths that are excluded from client certificate authentication requirements.",
         "nullable": true,
         "type": "string"
@@ -86,6 +87,7 @@
     ],
     "virtual_network_subnet_id": [
       {
+        "default": null,
         "description": "The ID of the virtual network subnet where the web app is placed.",
         "nullable": true,
         "type": "string"
@@ -100,6 +102,7 @@
     ],
     "connection_string": [
       {
+        "default": [],
         "description": "Connection string for the web app.",
         "nullable": true,
         "type": "list(object({name: string, type: string, value: string}))"
