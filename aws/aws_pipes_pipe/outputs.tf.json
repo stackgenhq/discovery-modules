@@ -1,0 +1,12 @@
+{
+    "output": {
+        "arn": {
+            "description": "The value of the arn output",
+            "value": "${aws_sqs_queue.this.arn}"
+        },
+        "id": {
+            "description": "The value of the id output",
+            "value": "${aws_sqs_queue.this.id}"
+        }
+    }
+}
