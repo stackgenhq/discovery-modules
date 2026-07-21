@@ -1,0 +1,22 @@
+version: 1.0
+
+representation:
+  side_panel:
+    label: AWS ECS Service
+  node:
+    label:
+      static: AWS ECS Service
+      template: ${name}
+    display_type: default
+
+discovery:
+  type: aws_ecs_service_blue_green
+  dnd_supported: false
+  data_source: data_aws_ecs_service_blue_green
+  references:
+    cluster:
+      from: aws_ecs_cluster
+      output: arn
+    task_definition:
+      from: aws_ecs_task_definition
+      output: arn
